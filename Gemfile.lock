@@ -48,6 +48,9 @@ GEM
       activesupport
       builder
       json
+    angular-ui-bootstrap-rails (0.6.0.0)
+    angular-ui-rails (0.4.0.2)
+    angularjs-rails (1.0.8)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (3.0.2)
@@ -175,6 +178,7 @@ GEM
     multipart-post (1.2.0)
     newrelic_rpm (3.6.3.104)
     nokogiri (1.5.10)
+    oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -186,9 +190,17 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-gplus (1.2.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    omniauth-twitter (1.0.0)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -315,6 +327,9 @@ DEPENDENCIES
   MissionHub
   activeadmin
   airbrake
+  angular-ui-bootstrap-rails
+  angular-ui-rails
+  angularjs-rails
   aws-sdk
   be_valid_asset
   bootstrap-sass (~> 2.1.1.0)
@@ -345,6 +360,8 @@ DEPENDENCIES
   newrelic_rpm
   omniauth
   omniauth-facebook
+  omniauth-gplus
+  omniauth-twitter
   paperclip (~> 3.0)
   pg
   pusher

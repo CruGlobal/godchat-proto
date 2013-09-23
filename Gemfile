@@ -18,6 +18,8 @@ gem 'inherited_resources'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-gplus'
 gem 'cancan'
 
 # Public API
@@ -50,6 +52,9 @@ gem "jquery-fileupload-rails"
 gem 'codemirror-rails'
 gem 'jshintrb'
 gem 'bootstrap-x-editable-rails'
+gem 'angularjs-rails'
+gem 'angular-ui-rails'
+gem 'angular-ui-bootstrap-rails'
 
 # Assets HTML
 gem 'haml'

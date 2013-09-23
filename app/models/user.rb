@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :languages
 
+  devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :gplus]
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user

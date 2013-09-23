@@ -1,0 +1,29 @@
+.navbar.navbar-inverse{:class => ( if current_page?(root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => root_path}
+        %strong 
+          %i.icon-leaf &nbsp;
+          GODCHAT
+      .nav-collapse.collapse
+        %ul.nav.pull-right
+          %li
+            %a{:href => root_path, :class => ( "active" if current_page?(root_path) )} HOME
+          %li
+            %a{:href => "about-us.html"} TOUR
+          %li
+            %a{:href => "pricing.html"} PRICING
+          %li
+            %a{:href => "contact.html"} SUPPORT
+          - if current_user.blank?
+            %li
+              %a.btn-header{:href => new_user_registration_path, :class => ( "active" if current_page?(new_user_registration_path) )} Sign up
+            %li
+              %a.btn-header{:href => new_user_session_path, :class => ( "active" if current_page?(new_user_session_path) )} Sign in
+          - else
+            %li
+              = link_to("Sign out", destroy_user_session_path, :method => :delete)

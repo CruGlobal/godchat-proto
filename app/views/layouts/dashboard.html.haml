@@ -1,0 +1,15 @@
+!!!
+%html{"ng-app" => "operator"}
+  %head
+    %title Chatapp
+    = stylesheet_link_tag "dashboard/application", :media => "all"
+    = csrf_meta_tags
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic", :rel => "stylesheet", :type => "text/css"}/
+    /[if lt IE 9]
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body.pull_top
+    = yield
+    = javascript_include_tag "//localhost:8080/socket.io/socket.io.js"
+    = javascript_include_tag "dashboard/application"

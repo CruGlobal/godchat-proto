@@ -1,0 +1,51 @@
+.viewport
+  .frame
+    #menu.menu.nav-collapse.collapse.width
+      .collapse-inner
+        .navbar.navbar-inverse
+          .navbar-inner
+            My Account
+        %ul.nav.nav-tabs.nav-stacked
+          %li
+            %a Account Settings
+          %li
+            %a Support
+          %li
+            = link_to("Sign out", destroy_user_session_path, :method => :delete)
+    .view
+      .navbar.navbar-inverse
+        .navbar-inner
+          %a{"data-target" => "#menu", "data-toggle" => "collapse", :type => "button"}
+            = image_tag "letter-avatars/#{current_user.first_name[0].downcase}.png", id: ""
+            = current_user.first_name
+      #content
+        %div{"ng-controller" => "MasterController"}
+          #seekers
+            %ul{"ng-repeat" => "user in users"}
+              %li.user{"ng-class" => "{active:selectedConversation==user}"}
+                %a{"ng-click" => "selectConversation(user)"}
+                  %img{"ng-src" => "/letter-avatars/{{user.name[0].toLowerCase()}}.png"}/
+                  {{capitaliseFirstLetter(user.name)}}
+          #messages
+            %div{"ng-repeat" => "user in users", "ng-controller" => "SeekerController", "ng-show" => "selectedConversation == user"}
+              %ul{"ng-repeat" => "item in messages"}
+                %li.message{"ng-class" => "{me: item.me}"}
+                  %div.avatar{"ng-switch" => "", :on => "item.me"}
+                    %div{"ng-switch-when" => "true"}
+                      %img{src: "/letter-avatars/#{current_user.first_name[0].downcase}.png"}/
+                    %div{"ng-switch-default" => ""}
+                      %img{"ng-src" => "/letter-avatars/{{item.name[0].toLowerCase()}}.png"}/
+                  .msg
+                    {{item.message}}
+                    .timestamp
+                      {{item.name}} • Sept 11, 5.00PM
+              .send-msg
+                %textarea.msd-elastic{"ng-model" => "message", :placeholder => "Send a message...", "ng-enter" => "sendMessage()"}
+%script{id: "call_request.html", type: "text/ng-template"}
+  .modal-header
+    %h3 Incoming Call
+  .modal-body
+    {{data.name}}
+  .modal-footer
+    %button.btn.btn-primary{"ng-click" => "ok()"} OK
+    %button.btn.btn-warning{"ng-click" => "cancel()"} Cancel
