@@ -2,10 +2,11 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 # Core
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 gem 'rake'
 gem 'sprockets'
-gem 'unicorn'
+gem 'puma'
+gem 'websocket-rails'
 
 # Data Storage
 gem 'redis'
@@ -39,19 +40,15 @@ gem 'useragent'
 gem 'be_valid_asset'
 
 # Assets CSS
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails'
 gem 'bootstrap-sass', '~> 2.1.1.0'
 gem 'font-awesome-sass-rails'
-gem 'compass-rails'
+gem 'compass'
 
 # Assets Javascript
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'highcharts-rails'
-gem "jquery-fileupload-rails"
-gem 'codemirror-rails'
 gem 'jshintrb'
-gem 'bootstrap-x-editable-rails'
 gem 'angularjs-rails'
 gem 'angular-ui-rails'
 gem 'angular-ui-bootstrap-rails'
@@ -62,8 +59,6 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'tabletastic'
 gem 'kaminari'
-gem 'ejs'
-gem 'rabl-rails'
 gem 'paperclip', '~> 3.0'
 
 # Rails Frameworks
@@ -71,12 +66,14 @@ gem 'wicked'
 gem 'seed_dump'
 
 # Active Admin
-gem 'activeadmin'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'cocoon'
+
+# API
+gem 'versionist'
 
 group :assets do
   gem 'hamlbars', '~> 2.0'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -84,6 +81,8 @@ group :development do
   gem 'rails-erd'
   gem 'foreman'
   gem 'rails-footnotes', '>= 3.7.9'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :production do

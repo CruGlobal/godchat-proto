@@ -1,18 +1,18 @@
-.navbar.navbar-inverse{:class => ( if current_page?(root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
+.navbar.navbar-inverse{:class => ( if current_page?(unauthenticated_root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
   .navbar-inner
     .container
       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => root_path}
+      %a.brand{:href => unauthenticated_root_path}
         %strong 
           %i.icon-leaf &nbsp;
           GODCHAT
       .nav-collapse.collapse
         %ul.nav.pull-right
           %li
-            %a{:href => root_path, :class => ( "active" if current_page?(root_path) )} HOME
+            %a{:href => unauthenticated_root_path, :class => ( "active" if current_page?(unauthenticated_root_path) )} HOME
           %li
             %a{:href => "about-us.html"} TOUR
           %li

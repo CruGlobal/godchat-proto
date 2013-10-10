@@ -1,5 +1,5 @@
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('http://localhost:8080/operator');
+  var socket = io.connect('/chat');
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
