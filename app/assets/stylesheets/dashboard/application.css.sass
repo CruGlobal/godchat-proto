@@ -1,0 +1,214 @@
+@import 'twitter/bootstrap'
+@import 'font-awesome'
+
+body
+  width: 100%
+  height: 100%
+  margin: 0
+  padding: 0
+  .user
+    img
+      width: 20px
+      margin-right: 10px
+  .colors
+    margin-top: -1px
+    .col-md-3
+      height: 4px
+      border-top: 1px solid
+      &:nth-child(2)
+        background-color: #3c9217
+        border-top-color: #337b15
+      &:nth-child(3)
+        background-color: #f9ab46
+        border-top-color: #d3933c
+      &:first-child
+        background-color: #da4c3e
+        border-top-color: #bb4134
+      &:last-child
+        background-color: #7190c6
+        border-top-color: #607ba8
+  /*
+    #seekers
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      width: 200px
+      background-color: #c3c3c3
+      ul
+        padding: 0
+        margin: 0
+        list-style: none
+        li
+          padding: 10px 5px
+          a
+            padding: 5px
+            color: #959595
+            font-size: 16px
+            img
+              width: 36px
+              border-radius: 5px
+              margin-right: 10px
+            &:hover
+              text-decoration: none
+              color: #000
+          &.active
+            background-color: #404040
+            a
+              color: #fff
+    #messages
+      position: absolute
+      top: 0
+      bottom: 46px
+      left: 200px
+      right: 50%
+      background-color: #e4e4e4
+      overflow: auto
+      .send-msg
+        position: fixed
+        bottom: 0
+        left: 200px
+        right: 13px
+        margin: 0
+        padding: 0
+        background: #fff
+        textarea
+          width: 100%
+          height: 100%
+          padding: 10px
+          margin: 0
+          border: 0
+          outline: none
+          border-radius: 0
+          resize: none
+          color: #262626
+          font-size: 13px
+          &:focus
+            outline: none
+      ul
+        padding: 10px
+        list-style: none
+        margin: 0
+        li.message
+          .avatar
+            float: left
+            img
+              height: 30px
+          .msg
+            padding: 10px
+            margin-left: 35px
+            background: #fff
+            border: 1px #ccc solid
+            .timestamp
+              color: #ccc
+              font-size: 11px
+          &.me
+            .avatar
+              float: right
+            .msg
+              margin: 0
+              margin-right: 35px
+              text-align: right
+    .viewport
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      overflow: hidden
+      .frame
+        position: absolute
+        width: 200%
+        height: 100%
+        top: 0
+        bottom: 0
+        left: 0
+        .navbar
+          margin-bottom: 0
+          .navbar-inner
+            background: #249AA7
+            border: 0
+            border-radius: 0
+            padding-left: 5px
+            a
+              color: white
+              padding: 5px
+              display: block
+              float: left
+              img
+                width: 36px
+                border-radius: 5px
+                margin-right: 10px
+              &:hover
+                text-decoration: none
+                cursor: pointer
+        .menu
+          height: 100%
+          background-color: #373737
+          &.collapse
+            float: left
+            height: 100% !important
+            width: auto
+            &.height
+              position: relative
+              height: 0
+              overflow: hidden
+              -webkit-transition: height 0.35s ease
+              -moz-transition: height 0.35s ease
+              -o-transition: height 0.35s ease
+              transition: height 0.35s ease
+            &.width
+              position: relative
+              width: 0
+              overflow: hidden
+              -webkit-transition: width 0.35s ease
+              -moz-transition: width 0.35s ease
+              -o-transition: width 0.35s ease
+              transition: width 0.35s ease
+            &.in
+              &.width
+                width: auto
+              &.height
+                height: auto
+          .collapse-inner
+            position: relative
+            width: 250px
+            height: 100%
+          .navbar
+            margin: 0
+            .navbar-inner
+              text-align: center
+              font-size: 12px
+              line-height: 33.75px
+              padding: 0 8px
+              color: #959595
+              min-height: 33px
+              background: #515151
+              text-align: left
+          .nav-stacked
+            padding: 0
+            li
+              background: #484848
+              a
+                border: 0
+                border-radius: 0
+                font-size: 17px
+                font-weight: 500
+                line-height: 40px
+                color: #d9d9d9
+                &:hover
+                  color: #fff
+                  background: transparent
+                  cursor: pointer
+        .view
+          width: 50%
+          height: 100%
+          overflow: hidden
+          .navbar .navbar-inner .btn-navbar
+            display: block
+            float: left
+          #content
+            position: absolute
+            text-align: justify
+            width: 100%
+            height: 100%

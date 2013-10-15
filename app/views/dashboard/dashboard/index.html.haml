@@ -1,23 +1,37 @@
 .viewport
   .frame
-    #menu.menu.nav-collapse.collapse.width
-      .collapse-inner
-        .navbar.navbar-inverse
-          .navbar-inner
-            My Account
-        %ul.nav.nav-tabs.nav-stacked
-          %li
-            %a Account Settings
-          %li
-            %a Support
-          %li
-            = link_to("Sign out", destroy_user_session_path, :method => :delete)
-    .view
-      .navbar.navbar-inverse
-        .navbar-inner
-          %a{"data-target" => "#menu", "data-toggle" => "collapse", :type => "button"}
-            = image_tag "letter-avatars/#{current_user.first_name[0].downcase}.png", id: ""
-            = current_user.first_name
+    %nav.navbar.navbar-default{role: "navigation"}
+      .row.colors
+        .col-md-3
+        .col-md-3
+        .col-md-3
+        .col-md-3
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{href: "#"} GodChat
+      / Collect the nav links, forms, and other content for toggling
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            %a.user
+              = image_tag "letter-avatars/#{current_user.first_name[0].downcase}.png", id: ""
+              = current_user.first_name
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              My Account
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a Account Settings
+              %li
+                %a Support
+              %li
+                = link_to("Sign out", destroy_user_session_path, :method => :delete)
       #content
         %div{"ng-controller" => "MasterController"}
           #seekers
