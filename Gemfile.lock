@@ -93,7 +93,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.2)
       climate_control (>= 0.0.3, < 1.0)
-    cocoon (1.2.1)
     coderay (1.1.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -364,7 +363,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan
-  cocoon
   compass
   delayed_job_active_record
   devise

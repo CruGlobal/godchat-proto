@@ -1,23 +1,3 @@
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect('/chat');
-  return {
-    on: function (eventName, callback) {
-      socket.on(eventName, function () {  
-        var args = arguments;
-        $rootScope.$apply(function () {
-          callback.apply(socket, args);
-        });
-      });
-    },
-    emit: function (eventName, data, callback) {
-      socket.emit(eventName, data, function () {
-        var args = arguments;
-        $rootScope.$apply(function () {
-          if (callback) {
-            callback.apply(socket, args);
-          }
-        });
-      })
-    }
-  };
+  return new Pusher('229ac5d51848deb3b353', {authEndpoint: 'auth'});
 });

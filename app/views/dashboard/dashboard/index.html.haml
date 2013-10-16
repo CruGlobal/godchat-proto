@@ -1,6 +1,6 @@
 .viewport
   .frame
-    %nav.navbar.navbar-default{role: "navigation"}
+    %nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
       .row.colors
         .col-md-3
         .col-md-3
@@ -13,7 +13,9 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: "#"} GodChat
+        %a.navbar-brand{href: "#"}
+          %i.icon-leaf
+          GodChat
       / Collect the nav links, forms, and other content for toggling
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
@@ -21,6 +23,7 @@
             %a.user
               = image_tag "letter-avatars/#{current_user.first_name[0].downcase}.png", id: ""
               = current_user.first_name
+        %ul.nav.navbar-nav.pull-right
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
               My Account
@@ -32,29 +35,29 @@
                 %a Support
               %li
                 = link_to("Sign out", destroy_user_session_path, :method => :delete)
-      #content
-        %div{"ng-controller" => "MasterController"}
-          #seekers
-            %ul{"ng-repeat" => "user in users"}
-              %li.user{"ng-class" => "{active:selectedConversation==user}"}
-                %a{"ng-click" => "selectConversation(user)"}
-                  %img{"ng-src" => "/letter-avatars/{{user.name[0].toLowerCase()}}.png"}/
-                  {{capitaliseFirstLetter(user.name)}}
-          #messages
-            %div{"ng-repeat" => "user in users", "ng-controller" => "SeekerController", "ng-show" => "selectedConversation == user"}
-              %ul{"ng-repeat" => "item in messages"}
-                %li.message{"ng-class" => "{me: item.me}"}
-                  %div.avatar{"ng-switch" => "", :on => "item.me"}
-                    %div{"ng-switch-when" => "true"}
-                      %img{src: "/letter-avatars/#{current_user.first_name[0].downcase}.png"}/
-                    %div{"ng-switch-default" => ""}
-                      %img{"ng-src" => "/letter-avatars/{{item.name[0].toLowerCase()}}.png"}/
-                  .msg
-                    {{item.message}}
-                    .timestamp
-                      {{item.name}} • Sept 11, 5.00PM
-              .send-msg
-                %textarea.msd-elastic{"ng-model" => "message", :placeholder => "Send a message...", "ng-enter" => "sendMessage()"}
+    #content
+      %div{"ng-controller" => "MasterController"}
+        #seekers
+          %ul{"ng-repeat" => "user in users"}
+            %li.user{"ng-class" => "{active:selectedConversation==user}"}
+              %a{"ng-click" => "selectConversation(user)"}
+                %img{"ng-src" => "/letter-avatars/{{user.name[0].toLowerCase()}}.png"}/
+                {{capitaliseFirstLetter(user.name)}}
+        #messages
+          %div{"ng-repeat" => "user in users", "ng-controller" => "SeekerController", "ng-show" => "selectedConversation == user"}
+            %ul{"ng-repeat" => "item in messages"}
+              %li.message{"ng-class" => "{me: item.me}"}
+                %div.avatar{"ng-switch" => "", :on => "item.me"}
+                  %div{"ng-switch-when" => "true"}
+                    %img{src: "/letter-avatars/#{current_user.first_name[0].downcase}.png"}/
+                  %div{"ng-switch-default" => ""}
+                    %img{"ng-src" => "/letter-avatars/{{item.name[0].toLowerCase()}}.png"}/
+                .msg
+                  {{item.message}}
+                  .timestamp
+                    {{item.name}} • Sept 11, 5.00PM
+            .send-msg
+              %textarea.msd-elastic{"ng-model" => "message", :placeholder => "Send a message...", "ng-enter" => "sendMessage()"}
 %script{id: "call_request.html", type: "text/ng-template"}
   .modal-header
     %h3 Incoming Call

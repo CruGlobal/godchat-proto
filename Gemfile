@@ -69,7 +69,6 @@ gem 'seed_dump'
 
 # Active Admin
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'cocoon'
 
 # API
 gem 'versionist'

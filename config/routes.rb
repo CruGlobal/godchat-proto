@@ -15,6 +15,7 @@ Chatapp::Application.routes.draw do
   authenticated :user do
     scope module: "dashboard" do
       root to: "dashboard#index", as: :authenticated_root
+      post 'auth', to: "dashboard#auth"
     end
   end
 
@@ -22,5 +23,5 @@ Chatapp::Application.routes.draw do
     root to: "site#index", as: :unauthenticated_root
   end
 
-  get '/chat' => 'chat#chat'
+  post '/pusher/presence' => 'pusher#presence'
 end

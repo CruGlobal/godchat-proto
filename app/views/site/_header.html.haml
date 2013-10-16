@@ -1,29 +1,33 @@
-.navbar.navbar-inverse{:class => ( if current_page?(unauthenticated_root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
-  .navbar-inner
-    .container
-      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand{:href => unauthenticated_root_path}
+.navbar.navbar-default{:class => ( if current_page?(unauthenticated_root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
+  .row.colors
+    .col-md-3
+    .col-md-3
+    .col-md-3
+    .col-md-3
+  .container
+    .navbar-header
+      %a.navbar-brand{href: unauthenticated_root_path}
         %strong 
           %i.icon-leaf &nbsp;
           GODCHAT
-      .nav-collapse.collapse
-        %ul.nav.pull-right
+      %a.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse"}
+        %span.glyphicon.glyphicon-bar
+        %span.glyphicon.glyphicon-bar
+        %span.glyphicon.glyphicon-bar
+    .container
+      .navbar-collapse.collapse
+        %ul.nav.pull-right.navbar-nav
+          %li{:class => ( "active" if current_page?(unauthenticated_root_path) )}
+            %a{:href => unauthenticated_root_path} Home
           %li
-            %a{:href => unauthenticated_root_path, :class => ( "active" if current_page?(unauthenticated_root_path) )} HOME
+            %a{href: "about-us.html"} Features
           %li
-            %a{:href => "about-us.html"} TOUR
-          %li
-            %a{:href => "pricing.html"} PRICING
-          %li
-            %a{:href => "contact.html"} SUPPORT
-          - if current_user.blank?
-            %li
-              %a.btn-header{:href => new_user_registration_path, :class => ( "active" if current_page?(new_user_registration_path) )} Sign up
-            %li
-              %a.btn-header{:href => new_user_session_path, :class => ( "active" if current_page?(new_user_session_path) )} Sign in
-          - else
-            %li
-              = link_to("Sign out", destroy_user_session_path, :method => :delete)
+            %a{href: "contact.html"} Support
+            - if current_user.blank?
+              %li{:class => ( "active" if current_page?(new_user_registration_path) )}
+                %a.btn-header{:href => new_user_registration_path} Sign up
+              %li{:class => ( "active" if current_page?(new_user_session_path) )}
+                %a.btn-header{:href => new_user_session_path} Sign in
+            - else
+              %li
+                = link_to("Sign out", destroy_user_session_path, :method => :delete)

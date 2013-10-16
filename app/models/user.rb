@@ -6,11 +6,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :ip, :location
+  # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :ip, :location, :status
 
   has_and_belongs_to_many :languages
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :gplus]
+
+  # constants
+  STATE = {
+    :offline => 0,
+    :online => 1,
+    :busy => 2,
+    :away => 3
+  }
+
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -32,6 +41,15 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def name
+    first_name + " " + last_name
+  end
+
+  def set_status(status)
+    self.status = status
+    self.save
   end
 
 
