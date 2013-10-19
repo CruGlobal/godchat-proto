@@ -9,10 +9,66 @@
 @import 'lib/sign-in'
 
 body
-  .navbar-brand strong
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-    text-transform: uppercase
+  padding-top: 80px
+  a
+    color: #45B29D
+    &:hover
+      color: #5cd6b5
+  h1, h2, h3, h4, h5
     font-weight: 300
+    color: #45B29D
+  .navbar-inverse .navbar-nav > .active > a
+    background-color: transparent
+    &:hover
+      background-color: transparent
+  .navbar-inverse
+    background-color: #45B29D
+    border: 0
+    color: white
+    padding: 14px 0
+    .navbar-nav
+      li
+        &.navbar-text
+          color: #fff
+          opacity: 0.5
+          font-weight: bold
+          line-height: 20px
+          margin: 0
+          padding: 15px
+          font-size: 16px
+        &.no-space
+          padding-left: 0
+          margin-left: -5px
+        .btn-success
+          background-color: #5CD6B5
+          padding: 10px 15px
+          margin: 5px 0
+        a
+          font-size: 16px
+          margin: 0
+          opacity: 0.8
+          text-shadow: none
+  .hero
+    min-height: 340px
+    background-color: #45B29D
+    padding-top: 4em
+    padding-bottom: 6em
+    color: #fff
+    h1
+      color: #fff
+      font-weight: 400
+    h4
+      color: #fff
+      opacity: 0.6
+      margin-bottom: 50px
+    h5
+      color: #fff
+      opacity: 0.6
+    .btn-success
+      background-color: #5CD6B5
+
+  .navbar-brand strong
+    color: #fff
   .colors
     margin-top: -1px
     .col-md-3

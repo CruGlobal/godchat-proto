@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Chatapp
+    %title Godchat
     = stylesheet_link_tag    "frontend/application", :media => "all"
     = csrf_meta_tags
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
@@ -9,7 +9,7 @@
     %link{:href => "http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic", :rel => "stylesheet", :type => "text/css"}/
     /[if lt IE 9]
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  %body.pull_top
+  %body
     = render "site/header"
     = yield
     = render "site/footer"

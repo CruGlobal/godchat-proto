@@ -1,181 +1,117 @@
-%section#feature_slider
-  %article#showcasing.slide{:style => "background: url(#{asset_path('backgrounds/landscape.png')}) repeat-x top center;"}
-    .container
-      %img.asset.left-30.sp600.t120.z1{:src => asset_path("slides/scene1/macbook.png")}/
-      .info
-        %h2 Beautiful theme for showcasing your works.
-  %article#ideas.slide{:style => "background: url(#{asset_path('backgrounds/aqua.jpg')}) repeat-x top center;"}
-    .container
-      .info
-        %h2 We love to turn ideas into beautiful things.
-      %img.asset.left-480.sp600.t260.z1{:src => asset_path("slides/scene2/left.png")}/
-      %img.asset.left-210.sp600.t213.z2{:src => asset_path("slides/scene2/middle.png")}/
-      %img.asset.left60.sp600.t260.z1{:src => asset_path("slides/scene2/right.png")}/
-  %article#tour.slide{:style => "background: url(#{asset_path('backgrounds/color-splash.jpg')}) repeat-x top center;"}
-    .container
-      %img.asset.left-472.sp650.t210.z3{:src => asset_path("slides/scene3/ipad.png")}/
-      %img.asset.left-365.sp600.t270.z4{:src => asset_path("slides/scene3/iphone.png")}/
-      %img.asset.left-350.sp450.t135.z2{:src => asset_path("slides/scene3/desktop.png")}/
-      %img.asset.left-185.sp550.t220.z1{:src => asset_path("slides/scene3/macbook.png")}/
-      .info
-        %h2 Fully Responsive theme
-        %a{:href => "features.html"} TOUR THE PRODUCT
-  %article#responsive.slide{:style => "background: url(#{asset_path('backgrounds/mango.jpg')}) repeat-x top center;"}
-    .container
-      %img.asset.left-472.sp600.t120.z3{:src => asset_path("slides/scene4/html5.png")}/
-      %img.asset.left-190.sp500.t120.z2{:src => asset_path("slides/scene4/css3.png")}/
-      .info
-        %h2
-          Responsive
-          %strong HTML5 & CSS3
-          Theme
-#showcase
+.hero.text-center
   .container
-    .section_header
-      %h3 Our Services
-    .row.feature_wrapper
-      / Features Row
-      .features_op1_row
-        / Feature
-        .col-md-4.feature.first
-          .img_box
-            %a{href: "services.html"}
-              %img.img-responsive{src: asset_path("service1.png")}/
-          .text
-            %h6 Responsive theme
-            %p
-              There are many variations of passages of generators on the embarrassing
-              hidden in content here making it look like.
-        / Feature
-        .col-md-4.feature
-          .img_box
-            %a{href: "services.html"}
-              %img.img-responsive{src: asset_path("service2.png")}/
-          .text
-            %h6 Easy customization
-            %p
-              There are many variations of passages of generators on the embarrassing
-              hidden in content here making it look like.
-        / Feature
-        .col-md-4.feature.last
-          .img_box
-            %a{href: "services.html"}
-              %img.img-responsive{src: asset_path("service3.png")}/
-          .text
-            %h6 Made with love
-            %p
-              There are many variations of passages of generators on the embarrassing
-              hidden in content here making it look like.
+    %h1 Decisions to Disciples.
+    %h4 Use your digital leverage to see people empowered to reach the world.
+    .row
+      .col-md-4.col-md-offset-4
+        %a.btn-lg.btn-success.btn-lg.btn-block{href: new_user_registration_path} Sign up for free
+    %h5 No credit card required
 #features
   .container
-    .section_header
-      %h3 Features
+    .row.feature.text-center
+      %h2 Turn your content into connection opportunities.
+      %p.lead Godchat is designed to help reach your visitors for Christ.
     .row.feature
       .col-md-6
         %img.img-responsive{src: asset_path("showcase1.png")}/
       .col-md-6.info
-        %h3
-          %img.img-responsive{src: asset_path("features-ico1.png")}/
+        %h2 Faster
         %p
-          There are many variations of passages of Lorem Ipsum available, but the
-          randomised words which don't look even slightly believable. If you are
-          going to use a passage of Lorem Ipsum, you need to be sure there isn't
-          anything embarrassing hidden in the middle of text.
+          There is a small window where your viewers are open to being challenged
+          to connect with the gospel. Godchat primes the viewer that chat is active and ready.
+          During their visit Godchat has text typed on screen
+          visually inviting the viewer to conversation at the peak of their interest.
     .row.feature.ss
       .col-md-6.info
-        %h3
-          %img.img-responsive{src: asset_path("features-ico2.png")}/
+        %h2 Smarter
         %p
-          There are many variations of passages of Lorem Ipsum available, but the
-          randomised words which don't look even slightly believable. If you are
-          going to use a passage of Lorem Ipsum, you need to be sure there isn't
-          anything embarrassing hidden in the middle of text.
+          Godchat makes use of important viewer metrics like name, location, IP address,
+          Facebook profile and graph info (friends in common with our network).
+          This allows us to offer inteligent and personalized connection with options
+          of people with similar interests from the same area to discuss
+          faith and growth oportunities.
       .col-md-6
         %img.pull-right.img-responsive{src: asset_path("showcase2.png")}/
     .row.feature.ss
       .col-md-6
         %img.img-responsive{src: asset_path("showcase3.png")}/
       .col-md-6.info
-        %h3
-          %img.img-responsive{src: asset_path("features-ico3.png")}/
+        %h2 Friendlier
         %p
-          There are many variations of passages of Lorem Ipsum available, but the
-          randomised words which don't look even slightly believable. If you are
-          going to use a passage of Lorem Ipsum, you need to be sure there isn't
-          anything embarrassing hidden in the middle of text.
-/ Pricing Option
-#in_pricing
-  .container
-    .section_header
-      %h3 Pricing
-    .row.charts_wrapp
-      / Plan Box
-      .col-md-4
-        .plan
-          .wrapper
-            %h3 Lite
-            .price
-              %span.dollar $
-              %span.qty 35
-              %span.month /month
-            .features
-              %p
-                %strong 10
-                Shared Projects
-              %p
-                %strong 4
-                Team Members
-              %p
-                %strong 10
-                Storage
-            %a.order{href: "pricing.html"} ORDER NOW
-      / Plan Box
-      .col-md-4.pro
-        .plan
-          .wrapper
-            %img.ribbon.img-responsive{src: asset_path("badge.png")}
-            %h3 Pro
-            .price
-              %span.dollar $
-              %span.qty 99
-              %span.month /month
-            .features
-              %p
-                %strong 10
-                Shared Projects
-              %p
-                %strong 25
-                Team Members
-              %p
-                %strong Unlimited
-                Storage
-              %p
-                %strong Plus
-                Phone Support
-            %a.order{:href => "pricing.html"} ORDER NOW
-      / Plan Box
-      .col-md-4.standar
-        .plan
-          .wrapper
-            %h3 Standard
-            .price
-              %span.dollar $
-              %span.qty 65
-              %span.month /month
-            .features
-              %p
-                %strong 10
-                Shared Projects
-              %p
-                %strong 4
-                Team Members
-              %p
-                %strong 10
-                Storage
-            %a.order{href: "pricing.html"} ORDER NOW
-    .start
-      %p Start your free, no-risk, 14 day trial!
-      %a{href: "pricing.html"} Start Now!
+          Relationship is hands down the key to stimulating and facilitating Christian growth. Godchat makes use of this fact by primarily targetting a users Christian friends, allowing the user to identify one they know and trust to become part of an active session in a unique environment that has resources on hand and an interactive space to see discussion, reconnection and a plan for gowth presented.
+-#
+  #in_pricing
+    .container
+      .section_header
+        %h3 Pricing
+      .row.charts_wrapp
+        / Plan Box
+        .col-md-4
+          .plan
+            .wrapper
+              %h3 Lite
+              .price
+                %span.dollar $
+                %span.qty 10
+                %span.month /month
+              .features
+                %p
+                  %strong 5
+                  Websites
+                %p
+                  %strong 10
+                  Team Members
+                %p
+                  %strong 10
+                  Storage
+              %a.order{href: "pricing.html"} ORDER NOW
+        / Plan Box
+        .col-md-4.pro
+          .plan
+            .wrapper
+              %img.ribbon.img-responsive{src: asset_path("badge.png")}
+              %h3 Contributor
+              .price
+                %span.dollar
+                %span.qty Free
+                %span.month /month
+              .features
+                %p
+                  %strong Unlimited
+                  Websites
+                %p
+                  %strong Unlimited
+                  Team Members
+                %p
+                  %strong
+                  Storage
+              %a.order{:href => "pricing.html"} ORDER NOW
+        / Plan Box
+        .col-md-4.standard
+          .plan
+            .wrapper
+              %h3 Standard
+              .price
+                %span.dollar $
+                %span.qty 65
+                %span.month /month
+              .features
+                %p
+                  %strong 10
+                  Shared Projects
+                %p
+                  %strong 4
+                  Team Members
+                %p
+                  %strong 10
+                  Storage
+                %p
+                  %strong Plus
+                  Phone Support
+              %a.order{href: "pricing.html"} ORDER NOW
+      .start
+        %p Start your free, no-risk, 14 day trial!
+        %a{href: "pricing.html"} Start Now!
 #clients
   .container
     .section_header
