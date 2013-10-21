@@ -96,7 +96,7 @@ var tour = new function() {
           orphan: true,
           backdrop: true,
           title: "Welcome to the Godchat Tour",
-          content: "<p class='lead'>So your keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video.</div>",
+          content: "<p class='lead'>So your keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
           onNext: function(bt) {
             tour.player.pauseVideo();
           },

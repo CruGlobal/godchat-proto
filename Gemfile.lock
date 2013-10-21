@@ -82,8 +82,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.3.2.2)
-      sass (~> 3.2)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -348,7 +346,6 @@ DEPENDENCIES
   be_valid_asset
   better_errors
   binding_of_caller
-  bootstrap-sass
   cancan
   compass
   delayed_job_active_record
