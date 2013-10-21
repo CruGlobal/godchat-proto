@@ -1,3 +1,4 @@
+/*
 $(function () {
     $(window).scroll(function() {
         if ($(".navbar").offset().top>30) {
@@ -61,3 +62,4 @@ var servicesCircle = {
     }
 }
 
+*/

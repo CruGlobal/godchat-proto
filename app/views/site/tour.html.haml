@@ -1,0 +1,33 @@
+.box
+  #player
+#chat
+  %h1.special #FallingPlates
+  #willyoufollow
+    .panel.panel-default
+      .panel-heading
+        %small.text-muted Jesus Asks
+        %br/ 
+        Will you follow Me?
+      .panel-body
+        .btn.btn-danger.btn-block.disabled No
+        .btn.btn-danger.btn-block.disabled I follow another religion
+        .btn.btn-warning.btn-block.disabled I am not sure
+        .btn.btn-info.btn-block{onClick: "tour.showNextStep('#willyoufollow', '#myfriends', 1, 2)"} I want to start
+        .btn.btn-success.btn-block.disabled I am trying
+        .btn.btn-success.btn-block.disabled I am following you
+
+  #myfriends
+    .panel.panel-default
+      .panel-heading
+        %small.text-muted
+          %span.name_box
+            Hey &nbsp;
+            %span.name>
+            \.
+
+          That's great that you want to start to follow Jesus.
+        %br/ 
+        Do you realize that it's much easier to start something new when a friend is involved?
+      .panel-body
+        .btn.btn-success.btn-block{onClick: "tour.bt.goto(3)"} Yes
+        .btn.btn-danger.btn-block{onClick: "tour.bt.goto(3)"} No

@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   def index
   end
 
-  def demo
-    render layout: 'demo'
+  def tour
+    render layout: 'tour'
   end
 end

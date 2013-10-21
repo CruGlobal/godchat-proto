@@ -21,7 +21,7 @@ Chatapp::Application.routes.draw do
 
   unauthenticated do
     root to: "site#index", as: :unauthenticated_root
-    get '/demo', to: "site#demo"
+    get '/tour', to: "site#tour", as: :tour
   end
 
   post '/pusher/presence' => 'pusher#presence'
