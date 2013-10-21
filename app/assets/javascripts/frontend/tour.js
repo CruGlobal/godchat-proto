@@ -17,7 +17,7 @@ var tour = new function() {
       tour.facebook_user_id = FB.getUserID();
       FB.api('/me', function(response) {
         tour.fb_response = response;
-        if (tour.fb_response != undefined) {
+        if (tour.fb_response.error == undefined) {
           $('.name').text(tour.fb_response.first_name);
           $('.name_box, .facebook').show();
         }
@@ -93,35 +93,56 @@ var tour = new function() {
 
     self.bt.addSteps([
       {
-          orphan: true,
-          backdrop: true,
-          title: "Welcome to the Godchat Tour",
-          content: "<p class='lead'>So your keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
-          onNext: function(bt) {
-            tour.player.pauseVideo();
-          },
-          onShown: function(bt) {
-            tour.player.seekTo(0);
-            tour.player.playVideo();
-          },
+        orphan: true,
+        backdrop: true,
+        title: "Welcome to the Godchat Tour",
+        content: "<p class='lead'>So your keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
+        onNext: function(bt) {
+          tour.player.pauseVideo();
+        },
+        onShown: function(bt) {
+          tour.player.seekTo(0);
+          tour.player.playVideo();
+        },
       },
       {
-          placement: "left",
-          element: "#willyoufollow",
-          title: "Chat Priming",
-          container: "#chat",
-          content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is a example of a simple question that you can ask your visitor to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
-          next: -1
+        placement: "left",
+        element: "#willyoufollow",
+        title: "Chat Priming",
+        container: "#chat",
+        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is a example of a simple question that you can ask your visitor to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
+        next: -1
       },
       {
-          placement: "bottom",
-          element: "#myfriends",
-          title: "Invite a Friend",
-          container: "#chat",
-          content: "<p class='lead'>Isn't everything's more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>Your signed into Facebook so we've grabbed your public data and made use of it here!</span></p><div class='alert alert-info text-center'>Click an answer</div>",
-          onShow: function(bt) {
+        placement: "bottom",
+        element: "#myfriends",
+        title: "Invite a Friend",
+        container: "#chat",
+        content: "<p class='lead'>Isn't everything's more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If you're visitors are signed into Facebook, we can make use of that connection.</span></p><div class='alert alert-info text-center'>Click an answer</div>",
+        onShow: function(bt) {
 
-          }
+        }
+      },
+      {
+        placement: "bottom",
+        element: "#linkafriend",
+        title: "Connect to a Christian Friend",
+        container: "#chat",
+        content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both. <div class='alert alert-info text-center'>Click <strong>Find someone for me instead</strong></div>",
+        onShow: function(bt) {
+          $('#player').prop('src', 'http://www.everystudent.com/features/gettingconnected.html');
+        }
+      },
+      {
+        placement: "bottom",
+        element: "#opconnect",
+        title: "Connect with a Godchat Operator",
+        container: "#chat",
+        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and the operators.<p>",
+        onShow: function(bt) {
+          if ( $('#player').prop('src') != 'http://www.everystudent.com/features/gettingconnected.html')
+            $('#player').prop('src', 'http://www.everystudent.com/features/gettingconnected.html');
+        }
       }
     ]);
 
