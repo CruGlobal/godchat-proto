@@ -6,7 +6,6 @@ gem 'rails', '4.0.0'
 gem 'rake'
 gem 'sprockets'
 gem 'puma'
-gem 'websocket-rails'
 
 # Data Storage
 gem 'redis'

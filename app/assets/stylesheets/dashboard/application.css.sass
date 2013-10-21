@@ -7,59 +7,22 @@ body
   margin: 0
   padding: 0
   padding-top: 70px
-  .navbar-brand
-    text-transform: uppercase
-    font-weight: 300
+  .navbar-inverse
+    background-color: #45B29D
+    border: 0
+  .navbar-brand strong
+    color: #fff
+    .text-muted
+      color: #fff
+      opacity: 0.4
+  .navbar-inverse .navbar-nav > .active > a
+    background-color: transparent
+    &:hover
+      background-color: transparent
   .user
     img
       width: 20px
       margin-right: 10px
-  .colors
-    margin-top: -1px
-    .col-md-3
-      height: 4px
-      border-top: 1px solid
-      &:nth-child(2)
-        background-color: #3c9217
-        border-top-color: #337b15
-      &:nth-child(3)
-        background-color: #f9ab46
-        border-top-color: #d3933c
-      &:first-child
-        background-color: #da4c3e
-        border-top-color: #bb4134
-      &:last-child
-        background-color: #7190c6
-        border-top-color: #607ba8
-  /*
-    #seekers
-      position: absolute
-      top: 0
-      bottom: 0
-      left: 0
-      width: 200px
-      background-color: #c3c3c3
-      ul
-        padding: 0
-        margin: 0
-        list-style: none
-        li
-          padding: 10px 5px
-          a
-            padding: 5px
-            color: #959595
-            font-size: 16px
-            img
-              width: 36px
-              border-radius: 5px
-              margin-right: 10px
-            &:hover
-              text-decoration: none
-              color: #000
-          &.active
-            background-color: #404040
-            a
-              color: #fff
     #messages
       position: absolute
       top: 0
