@@ -5,4 +5,8 @@ class SiteController < ApplicationController
   def tour
     render layout: 'tour'
   end
+
+  def features
+
+  end
 end

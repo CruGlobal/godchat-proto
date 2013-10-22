@@ -96,7 +96,7 @@ var tour = new function() {
         orphan: true,
         backdrop: true,
         title: "Welcome to the Godchat Tour",
-        content: "<p class='lead'>So your keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
+        content: "<p class='lead'>So you're keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
         onNext: function(bt) {
           tour.player.pauseVideo();
         },
@@ -110,7 +110,7 @@ var tour = new function() {
         element: "#willyoufollow",
         title: "Chat Priming",
         container: "#chat",
-        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is a example of a simple question that you can ask your visitor to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
+        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is a example of a simple question that you can ask your visitors to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
         next: -1
       },
       {
@@ -138,7 +138,7 @@ var tour = new function() {
         element: "#opconnect",
         title: "Connect with a Godchat Operator",
         container: "#chat",
-        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and the operators.<p>",
+        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and available operators.<p>",
         onShow: function(bt) {
           if ( $('#player').prop('src') != 'http://www.everystudent.com/features/gettingconnected.html')
             $('#player').prop('src', 'http://www.everystudent.com/features/gettingconnected.html');

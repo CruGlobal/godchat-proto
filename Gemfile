@@ -41,7 +41,7 @@ gem 'be_valid_asset'
 # Assets CSS
 gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
-gem 'font-awesome-sass-rails'
+gem "font-awesome-rails"
 gem 'compass'
 
 # Assets Javascript
@@ -55,7 +55,7 @@ gem 'angular-ui-bootstrap-rails'
 # Assets HTML
 gem 'haml'
 gem 'formtastic'
-gem 'formtastic-bootstrap'
+gem 'formtastic-bootstrap', github: "nickl-/formtastic-bootstrap3"
 gem 'tabletastic'
 gem 'kaminari'
 gem 'paperclip', '~> 3.0'

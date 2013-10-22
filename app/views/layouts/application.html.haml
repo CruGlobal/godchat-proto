@@ -10,7 +10,8 @@
     /[if lt IE 9]
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body.site
-    = render "site/header"
-    = yield
-    = render "site/footer"
+    .content
+      = render "site/header"
+      = yield
+      = render "site/footer"
     = javascript_include_tag "frontend/application"

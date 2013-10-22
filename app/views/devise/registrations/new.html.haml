@@ -1,5 +1,3 @@
-
-
 #sign_in2
   .container
     .row.login
@@ -36,7 +34,7 @@
               %span or
               .line.r
             .form
-              = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+              = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
                 = devise_error_messages!
                 = f.text_field :email, :autofocus => true, :placeholder => "Email"
                 = f.password_field :password, :placeholder => "Password"
@@ -44,4 +42,4 @@
                 .forgot
                   %span Already have an account?
                   %a{:href => new_user_session_path} Sign In
-                %input{:type => "submit", :value => "sign up"}/
+                %input.btn-default{:type => "submit", :value => "sign up"}/

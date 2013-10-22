@@ -1,13 +1,15 @@
-@import 'twitter/bootstrap'
-@import 'font-awesome'
-@import 'lib/bootstrap-overrides'
-@import 'lib/bootstrap-tour'
-@import 'lib/animate'
-@import 'lib/flexslider'
-@import 'lib/isotope'
-@import 'lib/theme'
-@import 'lib/index'
-@import 'lib/sign-in'
+@import twitter/bootstrap
+@import formtastic-bootstrap
+@import font-awesome
+@import lib/bootstrap-overrides
+@import lib/bootstrap-tour
+@import lib/animate
+@import lib/flexslider
+@import lib/isotope
+@import lib/theme
+@import lib/index
+@import lib/sign-in
+@import lib/features
 
 body
   .navbar-inverse .navbar-nav > .active > a
@@ -48,7 +50,85 @@ body
       color: #fff
       opacity: 0.4
   &.site
+    background: #252528 image-url('debut_dark.png') repeat
     padding-top: 80px
+    .bg-white
+      background-color: white
+    .btn-cyan
+      background-color: #5CD6B5
+      color: #fff
+      z-index: 100
+      &:hover
+        color: #fff
+    .signup_follow
+      padding-top: 25px
+      text-align: center
+      margin-bottom: 0.83em
+      background-image: -webkit-linear-gradient(left, #fff,#ddd 35%,#ddd 65%,#fff)
+      background-image: linear-gradient(to right, #fff,#ddd 35%,#ddd 65%,#fff)
+      background-position: top center
+      background-repeat: no-repeat
+      background-size: 100% 1px
+      h5
+        font-weight: 200
+        font-size: 13px
+        color: #999
+      .row
+        margin-top: -45px
+    .section_header
+      border-bottom: 1px solid #e1e1e1
+      padding: 2.25em 0
+      h3
+        font-style: normal
+        border: none
+    #features
+      padding-top: 0
+      .feature_wrapper
+        i
+          text-align: center
+          margin: 42px auto 37px
+          font-size: 60px
+          padding-top: 10px
+          color: #45b29d
+      .option2
+        margin-bottom: 0
+        margin-top: 50px
+        .feature .text
+          margin-top: 0
+          margin-bottom: 20px
+    .content
+      background: #fff
+    #footer
+      background: #252528 image-url('debut_dark.png') repeat
+      margin-top: 50px
+    #sign_in1
+      background: image-url('backgrounds/mint.jpg')
+      margin-bottom: -50px
+      .header
+        color: #667
+        h4
+          text-shadow: none
+      .remember
+        a
+          font-size: 12px
+          color: #667
+          font-weight: normal
+        label.checkbox
+          font-size: 12px
+          color: #667
+          margin: 0
+      .footer
+        input[type="text"], input[type="password"]
+          border: 1px solid #ccc
+          padding: 5px
+          height: 32px
+    #sign_in2
+      padding-top: 50px
+      .signin_box .box .form
+        input[type="text"], input[type="password"]
+          border: 1px solid #ccc
+          padding: 5px
+          height: 32px
     a
       color: #45B29D
       &:hover

@@ -1,4 +1,4 @@
-.navbar.navbar-default.navbar-inverse{:class => ( if current_page?(unauthenticated_root_path) then "transparent navbar-fixed-top" else "navbar-static-top" end )}
+.navbar.navbar-default.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
       %a.navbar-brand{href: unauthenticated_root_path}
@@ -16,7 +16,7 @@
           %li{:class => ( "active" if current_page?(unauthenticated_root_path) )}
             %a{:href => unauthenticated_root_path} Home
           %li
-            %a{href: "about-us.html"} Features
+            %a{href: features_path} Features
           %li
             %a{href: tour_path} Tour
           %li
