@@ -3,7 +3,6 @@ var tour = new function() {
 
   self.facebook_user_id;
   window.fbAsyncInit = function() {
-    $('.name_box, .facebook').hide();
     // init the FB JS SDK
     FB.init({
       appId      : '245335962168737', // App ID from the App Dashboard
@@ -89,14 +88,18 @@ var tour = new function() {
   }
 
   self.init = function() {
-    self.bt = new Tour();
+    $('.name_box, .facebook').hide();
+
+    self.bt = new Tour({
+      template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div><nav class='popover-navigation'><button class='btn btn-default btn-sm' data-role='prev'>« Prev</button><button class='btn btn-primary btn-sm pull-right' data-role='next'>Next »</button></nav></div>",
+    });
 
     self.bt.addSteps([
       {
         orphan: true,
         backdrop: true,
         title: "Welcome to the Godchat Tour",
-        content: "<p class='lead'>So you're keen to check out Godchat? Well this tour is a great place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be anything, your articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
+        content: "<p class='lead'>So you're here to find out about Godchat? This is the place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be swapped for anything: articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
         onNext: function(bt) {
           tour.player.pauseVideo();
         },
@@ -110,7 +113,7 @@ var tour = new function() {
         element: "#willyoufollow",
         title: "Chat Priming",
         container: "#chat",
-        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is a example of a simple question that you can ask your visitors to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
+        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is an example of a simple question that you can ask your visitors to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
         next: -1
       },
       {
@@ -118,10 +121,9 @@ var tour = new function() {
         element: "#myfriends",
         title: "Invite a Friend",
         container: "#chat",
-        content: "<p class='lead'>Isn't everything's more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If you're visitors are signed into Facebook, we can make use of that connection.</span></p><div class='alert alert-info text-center'>Click an answer</div>",
-        onShow: function(bt) {
-
-        }
+        content: "<p class='lead'>Isn't everything more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If your visitors are signed into Facebook, we can make use of that connection.</span></p><div class='alert alert-info text-center'>Click an answer</div>",
+        next: -1,
+        prev: 1
       },
       {
         placement: "bottom",
@@ -140,8 +142,8 @@ var tour = new function() {
         container: "#chat",
         content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and available operators.<p>",
         onShow: function(bt) {
-          if ( $('#player').prop('src') != 'http://www.everystudent.com/features/gettingconnected.html')
-            $('#player').prop('src', 'http://www.everystudent.com/features/gettingconnected.html');
+          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/')
+            $('#player').prop('src', 'http://www.startingwithgod.com/');
         }
       }
     ]);

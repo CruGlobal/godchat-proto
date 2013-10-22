@@ -3,15 +3,12 @@
     .row.info
       .col-md-6.residence
         %ul
-          %li 307-309 Great North Road
-          %li Grey Lynn, AKL 1245, NZ
+          %li 100 Lake Hart Drive; Dept 2100 
+          %li Orlando FL 32832
       .col-md-5.touch
-        %ul
+        %ul.pull-right
           %li
-            %strong P.
-            + 64 9 360 5466
-          %li
-            %strong E.
+            %strong E:
             %a{href: "mailto:contact@godchat.tv"} contact@godchat.tv
     .row.credits
       .col-md-12
@@ -25,6 +22,8 @@
               %span.socialicons_h.ico2h
         .row.copyright
           .col-md-12
-            Copyright ©
+            %p 
+              %a{href: "http://www.indigitous.org/", target: "_blank"}
+                %img{:src => asset_url('logo.png'), :alt => "Indigitous"}/ 
+            Accelerating the Great Commission | Copyright ©
             = Time.now.year
-            %a{href: "http://www.indigitous.org/", target: "_blank"} Indigitous | Accelerating the Great Commission
