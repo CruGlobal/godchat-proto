@@ -1,3 +1,5 @@
+.invite
+  Hey! After the video, stick around because I want to chat...
 .box
   #player
 #chat
@@ -35,7 +37,8 @@
         %h5.text-center
           %a{:href => "#"}http://godchat.tv/u/06dEQ
       .panel-body
-        %p While we wait let's look at the article “Starting with God”, I have just loaded it into the media box to the left. Have a read while we wait for your friend.
+        %p.new-article While you wait why not look through the article “Starting with God”, I have just loaded it into the media box to the left.
+        %p.old-article While we wait for your friend, you can keep reading the "Starting with God" article.
         .btn.btn-default.btn-sm.btn-block{onClick: "tour.showNextStep('#linkafriend', '#opconnect', 3, 4)"} Find someone for me instead
   #opconnect
     .panel.panel-default
@@ -44,4 +47,7 @@
           I'm busy searching for someone to chat with you.
         %p This will likely take between 1-3 minutes so hang in there.
       .panel-body
-        %p While you wait why not look through the article “Starting with God”, I have just loaded it into the media box to the left.
+        %p.new-article While you wait why not look through the article “Starting with God”, I have just loaded it into the media box to the left.
+        %p.old-article While I look for someone to chat with, you can keep reading the "Starting with God" article.
+        .text-right
+          %i.icon-spinner.icon-spin

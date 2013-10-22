@@ -66,16 +66,17 @@ var tour = new function() {
           case YT.PlayerState.ENDED:
           case YT.PlayerState.PAUSED:
             document.title = self.title;
-            self.bt.showStep( self.bt.getState("current_step") );
+            if (self.bt.getState("current_step") != "0")
+              self.bt.showStep( self.bt.getState("current_step") );
             self.showChat();
             break;
         }
     };
     self.showChat = function() {
-      $('.box, #chat').addClass('paused');
+      $('.box, #chat, .invite').addClass('paused');
     };
     self.hideChat = function() {
-      $('.box, #chat').removeClass('paused');
+      $('.box, #chat, .invite').removeClass('paused');
     };
 
   self.showNextStep = function(objectHide, objectShow, current, next) {
@@ -88,10 +89,11 @@ var tour = new function() {
   }
 
   self.init = function() {
-    $('.name_box, .facebook').hide();
+    $('.name_box, .facebook, .new-article, .old-article').hide();
 
     self.bt = new Tour({
       template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div><nav class='popover-navigation'><button class='btn btn-default btn-sm' data-role='prev'>« Prev</button><button class='btn btn-primary btn-sm pull-right' data-role='next'>Next »</button></nav></div>",
+      debug: true,
     });
 
     self.bt.addSteps([
@@ -123,7 +125,10 @@ var tour = new function() {
         container: "#chat",
         content: "<p class='lead'>Isn't everything more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If your visitors are signed into Facebook, we can make use of that connection.</span></p><div class='alert alert-info text-center'>Click an answer</div>",
         next: -1,
-        prev: 1
+        onPrev: function(bt) {
+          $('#myfriends').hide();
+          $('#willyoufollow').fadeIn();
+        }
       },
       {
         placement: "bottom",
@@ -131,8 +136,20 @@ var tour = new function() {
         title: "Connect to a Christian Friend",
         container: "#chat",
         content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both. <div class='alert alert-info text-center'>Click <strong>Find someone for me instead</strong></div>",
+        next: -1,
         onShow: function(bt) {
-          $('#player').prop('src', 'http://www.everystudent.com/features/gettingconnected.html');
+          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
+            $('#player').prop('src', 'http://www.startingwithgod.com/');
+            $('#linkafriend .new-article').fadeIn();
+            $('#linkafriend .old-article').hide();
+          } else {
+            $('#linkafriend .new-article').hide();
+            $('#linkafriend .old-article').fadeIn();
+          }
+        },
+        onPrev: function(bt) {
+          $('#linkafriend').hide();
+          $('#myfriends').fadeIn();
         }
       },
       {
@@ -140,10 +157,22 @@ var tour = new function() {
         element: "#opconnect",
         title: "Connect with a Godchat Operator",
         container: "#chat",
+        prev: 2,
         content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and available operators.<p>",
         onShow: function(bt) {
-          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/')
+          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
             $('#player').prop('src', 'http://www.startingwithgod.com/');
+            $('#opconnect .new-article').fadeIn();
+            $('#opconnect .old-article').hide();
+          } else {
+            $('#opconnect .new-article').hide();
+            $('#opconnect .old-article').fadeIn();
+          }
+
+        },
+        onPrev: function(bt) {
+          $('#opconnect').hide();
+          $('#myfriends').fadeIn();
         }
       }
     ]);
