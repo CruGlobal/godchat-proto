@@ -115,7 +115,10 @@ var tour = new function() {
         orphan: true,
         title: "Invitation to Chat",
         content: "<p class='lead'>The first step is to inform visitors that chat is ready.</p><p>See our bot buddy down the bottom? We've used a persona to invite visitors to chat.</p><a href='#' onclick='tour.player.pauseVideo();'><div class='alert alert-info text-center'>Pause the video</div></a>",
-        next: -1,
+        //next: -1,
+        onNext: function(bt) {
+          tour.player.pauseVideo();
+        },
         onShow: function(bt) {
           tour.player.playVideo();
         }
@@ -126,8 +129,12 @@ var tour = new function() {
         title: "Chat Priming",
         container: "#chat",
         content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is an example of a simple question that you can ask your visitors to engage them with your content.</p><a href='#' onclick='$(\"#start-btn\").click()'><div class='alert alert-info text-center'>Click the \"I want to start\" button</div></a>",
-        next: -1,
+        //next: -1,
+        onNext: function(bt) {
+          $("#start-btn").click();
+        },
         onPrev: function(bt) {
+          self.hideChat();
           tour.player.playVideo();
         }
       },
@@ -149,10 +156,15 @@ var tour = new function() {
         title: "Connect to a Christian Friend",
         container: "#chat",
         content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both.<a href='#'onclick='$(\"#findsomeone-btn \").click()'><div class='alert alert-info text-center'>Click the \"Find someone for me instead\" button</div></a>",
-        next: -1,
+        //next: -1,
+        onNext: function(bt) {
+          $("#findsomeone-btn").click();
+        },
         onShow: function(bt) {
           if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
-            $('#player').prop('src', 'http://www.startingwithgod.com/');
+            //$('#player').prop('src', 'http://www.startingwithgod.com/');
+            $('#webpage').show();
+            $('#player').hide();
             $('#linkafriend .new-article').fadeIn();
             $('#linkafriend .old-article').hide();
           } else {
@@ -161,6 +173,8 @@ var tour = new function() {
           }
         },
         onPrev: function(bt) {
+          $('#webpage').hide();
+          $('#player').show();
           $('#linkafriend').hide();
           $('#myfriends').fadeIn();
         }
