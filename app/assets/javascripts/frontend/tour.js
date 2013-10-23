@@ -59,14 +59,14 @@ var tour = new function() {
         switch(evt.data) {
           case YT.PlayerState.PLAYING:
             document.title = "▶ " + self.title;
-            if (self.bt.getState("current_step") != "0")
+            if (parseInt(self.bt.getState("current_step")) > 1)
               self.bt.hideStep( self.bt.getState("current_step") );
             self.hideChat();
             break;
           case YT.PlayerState.ENDED:
           case YT.PlayerState.PAUSED:
             document.title = self.title;
-            if (self.bt.getState("current_step") != "0")
+            if (parseInt(self.bt.getState("current_step")) > 1)
               self.bt.showStep( self.bt.getState("current_step") );
             self.showChat();
             break;
@@ -74,6 +74,8 @@ var tour = new function() {
     };
     self.showChat = function() {
       $('.box, #chat, .invite').addClass('paused');
+      if (parseInt(self.bt.getState("current_step")) == 1)
+        tour.bt.goto(2);
     };
     self.hideChat = function() {
       $('.box, #chat, .invite').removeClass('paused');
@@ -100,10 +102,9 @@ var tour = new function() {
       {
         orphan: true,
         backdrop: true,
-        title: "Welcome to the Godchat Tour",
-        content: "<p class='lead'>So you're here to find out about Godchat? This is the place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be swapped for anything: articles, videos, websites etc.</p><div class='alert alert-info text-center'>We'll start by pausing the video</div>",
+        content: "<p class='lead'><strong>So you're here to find out about Godchat?</strong> This is the place to start.</p><p>Behind me there is a video playing called <a href='http://www.fallingplates.com'>#FallingPlates</a>. This can be swapped for anything: articles, videos, websites etc.</p>",
         onNext: function(bt) {
-          tour.player.pauseVideo();
+          //tour.player.pauseVideo();
         },
         onShown: function(bt) {
           tour.player.seekTo(0);
@@ -111,19 +112,31 @@ var tour = new function() {
         },
       },
       {
+        orphan: true,
+        title: "Invitation to Chat",
+        content: "<p class='lead'>The first step is to inform visitors that chat is ready.</p><p>See our bot buddy down the bottom? We've used a persona to invite visitors to chat.</p><a href='#' onclick='tour.player.pauseVideo();'><div class='alert alert-info text-center'>Pause the video</div></a>",
+        next: -1,
+        onShow: function(bt) {
+          tour.player.playVideo();
+        }
+      },
+      {
         placement: "left",
         element: "#willyoufollow",
         title: "Chat Priming",
         container: "#chat",
-        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is an example of a simple question that you can ask your visitors to engage them with your content.</p><div class='alert alert-info text-center'>Go on, click <strong>I want to start</strong></div>",
-        next: -1
+        content: "<p class='lead'>We can encourage visitors to interact with content.</p><p>Here is an example of a simple question that you can ask your visitors to engage them with your content.</p><a href='#' onclick='$(\"#start-btn\").click()'><div class='alert alert-info text-center'>Click the \"I want to start\" button</div></a>",
+        next: -1,
+        onPrev: function(bt) {
+          tour.player.playVideo();
+        }
       },
       {
-        placement: "bottom",
+        placement: "left",
         element: "#myfriends",
         title: "Invite a Friend",
         container: "#chat",
-        content: "<p class='lead'>Isn't everything more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If your visitors are signed into Facebook, we can make use of that connection.</span></p><div class='alert alert-info text-center'>Click an answer</div>",
+        content: "<p class='lead'>Isn't everything more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If your visitors are signed into Facebook, we can make use of that connection.</span></p><a href='#' onclick='$(\"#invite-btn\").click()'><div class='alert alert-info text-center'>Click an answer</div></a>",
         next: -1,
         onPrev: function(bt) {
           $('#myfriends').hide();
@@ -131,11 +144,11 @@ var tour = new function() {
         }
       },
       {
-        placement: "bottom",
+        placement: "left",
         element: "#linkafriend",
         title: "Connect to a Christian Friend",
         container: "#chat",
-        content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both. <div class='alert alert-info text-center'>Click <strong>Find someone for me instead</strong></div>",
+        content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both.<a href='#'onclick='$(\"#findsomeone-btn \").click()'><div class='alert alert-info text-center'>Click the \"Find someone for me instead\" button</div></a>",
         next: -1,
         onShow: function(bt) {
           if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
@@ -153,12 +166,12 @@ var tour = new function() {
         }
       },
       {
-        placement: "bottom",
+        placement: "left",
         element: "#opconnect",
         title: "Connect with a Godchat Operator",
         container: "#chat",
-        prev: 2,
-        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and find a someone who is keen to connect and negotiate a connection between your visitors and available operators.<p>",
+        prev: 3,
+        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and attempt to find someone who can connect and negotiate a connection between your visitors and available operators.<p>",
         onShow: function(bt) {
           if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
             $('#player').prop('src', 'http://www.startingwithgod.com/');
