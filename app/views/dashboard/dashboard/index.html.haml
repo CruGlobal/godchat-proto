@@ -53,10 +53,12 @@
             .send-msg
               %textarea.msd-elastic{"ng-model" => "message", :placeholder => "Send a message...", "ng-enter" => "sendMessage()"}
 %script{id: "call_request.html", type: "text/ng-template"}
-  .modal-header
-    %h3 Incoming Call
-  .modal-body
-    {{data.name}}
-  .modal-footer
-    %button.btn.btn-primary{"ng-click" => "ok()"} OK
-    %button.btn.btn-warning{"ng-click" => "cancel()"} Cancel
+  .modal-dialog
+  .modal-content
+      .modal-header
+        %h3 Incoming Call
+      .modal-body
+        {{data.name}}
+      .modal-footer
+        %button.btn.btn-primary{"ng-click" => "ok()"} OK
+        %button.btn.btn-warning{"ng-click" => "cancel()"} Cancel

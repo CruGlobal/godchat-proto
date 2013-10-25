@@ -42,8 +42,6 @@ app.controller('MasterController', function($scope, $modal, socket) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-
-
   authenticate();
 
 });
