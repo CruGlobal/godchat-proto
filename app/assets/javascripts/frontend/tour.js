@@ -23,7 +23,6 @@ var tour = new function() {
       });
     });
   };
-  
 
   (function(d, debug){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -200,7 +199,29 @@ var tour = new function() {
         onPrev: function(bt) {
           $('#opconnect').hide();
           $('#myfriends').fadeIn();
+        },
+        onNext: function(bt) {
+          $('#chatbox').fadeIn();
         }
+      },
+      {
+        placement: "left",
+        element: "#chatbox",
+        title: "Chat",
+        container: "#chat",
+        prev: 5,
+        content: "<p class='lead'>This is chat in action.</p><p>Here is an example chat just getting started.<p>",
+
+        onPrev: function(bt) {
+          $('#chat').fadeOut();
+        }
+      },
+      {
+        orphan: true,
+        backdrop: true,
+        prev: 6,
+        content: "<p class='lead'>That's all there is to it. Thanks for checking out Godchat. </p><p>Godchat is all about allowing crowd sourcing of missionaries. Because everyone is a missionary.<br><br><a class=\"btn-lg btn-success btn-block text-center\" href=\"/users/sign_up\">Sign up for free</a><p>",
+        next: -1
       }
     ]);
 

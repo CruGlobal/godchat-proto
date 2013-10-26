@@ -50,3 +50,16 @@
         %p.old-article While I look for someone to chat with, you can keep reading the "Starting with God" article.
         .text-right
           %i.icon-spinner.icon-spin
+  #chatbox
+    %h1.special #FallingPlates Chat
+    %ul.conversation 
+      %li
+        .message.text-right Hey, how are you?
+        .timestamp.pull-right Just now
+        .person Robert
+      %li
+        .message Great. How do I get started?
+        .timestamp.pull-right Just now
+        .person You
+
+    %input.form-control.chat-input{:type => "text", placeholder: "Message..."}/ 

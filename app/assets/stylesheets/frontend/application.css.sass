@@ -187,9 +187,11 @@ body
     padding: 0
     height: 100%
     background: #000 !important
+    .popover.tour .btn-success
+      background-color: #5CD6B5
     #link
       cursor: pointer
-    #myfriends, #linkafriend, #opconnect, #webpage
+    #myfriends, #linkafriend, #opconnect, #webpage, #chatbox
       display: none
     #webpage
       display: none
@@ -274,6 +276,36 @@ body
       transition: right ease-out 0.5s
       background: #f15154
       padding: 20px
+      #chatbox
+        background: #fff
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        border-left: 1px solid #ccc
+        .special
+          color: #f15154
+          border-bottom: 1px solid #ccc
+          padding-bottom: 20px
+        ul.conversation
+          list-style: none
+          padding: 0
+          overflow: auto
+          li
+            padding: 10px
+            border-bottom: 1px solid #ccc
+            .timestamp, .person
+              color: #777
+              font-size: smaller
+              font-weight: 300
+        input[type=text]
+          display: block
+          position: absolute
+          bottom: 0
+          left: 0
+          right: 0
+          border-radius: 0
       &.paused
         right: 0
       .special
