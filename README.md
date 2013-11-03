@@ -1,17 +1,19 @@
 # Godchat
 
-This is The Rails Port, the [Ruby on Rails](http://rubyonrails.org/)
-application that powers the [GodChat](http://www.godchat.tv) website and API.
-The software is also known as "godchat".
+###From Decisions to Disciples.
+Godchat allows crowd sourcing of missionaries. Everyone is a missionary.
+
+###Turn your content into connection opportunities.
+The advent of online ministry has blurred traditional structures of discipleship. Viewers simply finding Christian material does not automatically lead to disciples. In todays digital age, we need a platform to bring people from online connection, into community and follow-up based around relationship.
+
+This [Ruby on Rails Application](http://rubyonrails.org/) powers the [GodChat](http://www.godchat.tv) website and API.
 
 This repository consists of:
 
-* The web site, including user accounts, diary entries, user-to-user messaging
-* The Browse pages - a web front-end to the OpenStreetMap data
+* The web site, including engine accounts, operator accounts, client account and more
+* The Browse pages - a web front-end to the Godchat Platform
 
-A fully-functional Rails Port installation depends on other services, including map tile
-servers and geocoding services, that are provided by other software. The default installation
-uses publically-available services to help with development and testing.
+A fully-functional Rails installation depends on other services that are provided by other software. The default installation uses publically visible and freely available services to help with development and testing.
 
 # License
 
@@ -20,7 +22,7 @@ a copy of which can be found in the [LICENSE](LICENSE) file.
 
 # Installation
 
-The repository holds a Ruby on Rails application that uses PostgreSQL as its database, and has a large number of dependencies for installation. For full details please see [INSTALL.md](INSTALL.md)
+This repository holds a Ruby on Rails application that uses PostgreSQL as its database, and has a large number of dependencies for installation. For full details please see [INSTALL.md](INSTALL.md)
 
 # Development
 
