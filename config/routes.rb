@@ -13,9 +13,8 @@ Chatapp::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   authenticated :user do
-    scope module: "dashboard" do
-      root to: "dashboard#index", as: :authenticated_root
-      post 'auth', to: "dashboard#auth"
+    scope module: "engine" do
+      root to: "base#index", as: :authenticated_root
     end
   end
 

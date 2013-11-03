@@ -1,4 +1,4 @@
-class Dashboard::DashboardController < ApplicationController
+class Dashboard::BaseController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
   layout 'dashboard'
   def index
