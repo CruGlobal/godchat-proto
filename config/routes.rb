@@ -46,4 +46,6 @@ Chatapp::Application.routes.draw do
   end
 
   post '/pusher/presence' => 'pusher#presence'
+
+  get 'find_friends' => 'friends#find'
 end
