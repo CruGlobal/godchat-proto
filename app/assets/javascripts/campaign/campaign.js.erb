@@ -124,6 +124,7 @@ var campaign = new function() {
           $("#findsomeone-btn").click();
         },
         onShow: function(bt) {
+          $('#friends').load("find_friends.js")
           if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
             //$('#player').prop('src', 'http://www.startingwithgod.com/');
             $('#webpage').show();

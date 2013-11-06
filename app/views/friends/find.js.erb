@@ -1,2 +1,3 @@
 <% MissionHub.client_secret = ENV['missionhub_key'] %>
-# <%= debug MissionHub::Person.all(params: { filters: {is_friends_with: params[:id], roles: 'Admin,Leader,Involved,User'}}) %>
+<% request_params = { 'filters[is_friends_with]' => params[:id], 'filters[roles]' => 'Admin,Leader,Involved,User', 'secret' => ENV['missionhub_key']} %>
+<%= RestClient.get "https://www.missionhub.com/apis/v3/people", {params: request_params} %>
