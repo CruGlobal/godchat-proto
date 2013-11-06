@@ -56,6 +56,10 @@ GEM
       activesupport (= 4.0.0)
       arel (~> 4.0.0)
     activerecord-deprecated_finders (1.0.3)
+    activerecord-session_store (0.1.0)
+      actionpack (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
+      railties (>= 4.0.0, < 5)
     activeresource (4.0.0)
       activemodel (~> 4.0)
       activesupport (~> 4.0)
@@ -341,6 +345,7 @@ PLATFORMS
 DEPENDENCIES
   MissionHub
   activeadmin!
+  activerecord-session_store
   airbrake
   angular-ui-bootstrap-rails
   angular-ui-rails

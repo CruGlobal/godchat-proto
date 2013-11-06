@@ -13,6 +13,7 @@ gem 'resque'
 gem 'pg'
 gem 'delayed_job_active_record'
 gem 'inherited_resources'
+gem 'activerecord-session_store'
 
 # Authentication
 gem 'devise'

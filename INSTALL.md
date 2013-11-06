@@ -149,6 +149,27 @@ foreman start
 
 You can now view the site in your favourite web-browser at `http://localhost:5000/`
 
+### Install ngrok & Configure Pusher
+
+You'll need to to install [ngrok](https://ngrok.com/) to allow Pusher to send webhooks to your development environment. Once this is setup, run
+
+```
+ngrok 5000
+```
+
+This will produce the following output
+
+```
+Tunnel Status                 online
+Version                       1.6/1.5                               
+Forwarding                    http://13251d39.ngrok.com -> 127.0.0.1:5000                                                                                                                        
+Forwarding                    https://13251d39.ngrok.com -> 127.0.0.1:5000                                                                                                                                                     
+Web Interface                 127.0.0.1:4040                                   
+```
+
+### Create the Pusher App
+
+Go to Pusher and create a new app. Make sure to enable Client side events. Create a webhook that points to your forwarding address e.g. `http://13251d39.ngrok.com`
 
 ## Useful Additions
 
