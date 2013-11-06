@@ -3,6 +3,7 @@ class CreateCampaigns < ActiveRecord::Migration
     create_table :campaigns do |t|
       t.string :name
       t.string :cname
+      t.string :youtube_url
 
       t.timestamps
     end
