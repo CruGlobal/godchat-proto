@@ -19,31 +19,24 @@ Chatapp::Application.routes.draw do
     end
   end
 
-  api_version(:module => "V1", :path => {:value => "v1"}) do
-    namespace :call do
-      post 'accept', to: "index#accept"
-      get 'connect', to: "index#connect"
-    end
-    post 'status', to: "user#status"
-    resource :message, only: [:create] do
-      put 'read', on: :member
-    end
-  end
-
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   authenticated :user do
-    scope module: "engine" do
-      root to: "base#index", as: :authenticated_root
+    namespace :engineer do
+      root to: "dashboard#index"
+      resources :campaigns
+      resources :organizations
+    end
+
+    namespace :agent do
+      root to: "dashboard#index"
+      post 'auth', to: "dashboard#auth"
     end
   end
-
-  unauthenticated do
-    root to: "site#index", as: :unauthenticated_root
-    get '/tour', to: "site#tour", as: :tour
-    get '/features', to: "site#features", as: :features
-  end
+  
+  root to: "site#index", as: :unauthenticated_root
+  get '/tour', to: "site#tour", as: :tour
+  get '/features', to: "site#features", as: :features
 
   post '/pusher/presence' => 'pusher#presence'
 

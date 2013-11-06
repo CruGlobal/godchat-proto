@@ -1,6 +1,6 @@
-class Dashboard::BaseController < ApplicationController
+class Agent::DashboardController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
-  layout 'dashboard'
+  layout 'agent'
   def index
   end
 

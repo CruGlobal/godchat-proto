@@ -1,6 +1,6 @@
-class Engine::BaseController < ApplicationController
+class Engineer::DashboardController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
-  layout 'engine'
+  layout 'engineer'
   def index
 
   end
