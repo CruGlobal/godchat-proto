@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Godchat
+    = stylesheet_link_tag    "campaign/application", :media => "all"
+    = csrf_meta_tags
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    /[if lt IE 9]
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body.site
+    .content
+      = yield
+    = javascript_include_tag "campaign/application"
