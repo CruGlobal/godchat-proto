@@ -16,3 +16,4 @@
 /tmp
 database.yml
 vendor/ruby
+.idea

@@ -1,7 +1,7 @@
 .navbar.navbar-default.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
-      %a.navbar-brand{href: unauthenticated_root_path}
+      %a.navbar-brand{href: root_path}
         %strong 
           %i.icon-comments-alt &nbsp;
           Godchat
@@ -13,8 +13,8 @@
     .container
       .navbar-collapse.collapse
         %ul.nav.pull-right.navbar-nav
-          %li{:class => ( "active" if current_page?(unauthenticated_root_path) )}
-            %a{:href => unauthenticated_root_path} Home
+          %li{:class => ( "active" if current_page?(root_path) )}
+            %a{:href => root_path} Home
           %li
             %a{href: features_path} Features
           %li
