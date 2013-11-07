@@ -1,14 +1,13 @@
  app.controller('VisitorController', function($scope, socket) {
   $scope.messages = [];
-
-  $scope.channel = socket.subscribe('presence-' + $scope.user.channel);
+  $scope.channel = socket.subscribe('presence-' + users[0].channel);
   
   $scope.sendMessage = function () {
 
-    $scope.channel.trigger('client-insider-message', { text: $scope.message, user: current_user });
+    $scope.channel.trigger('client-insider-message', { text: $scope.message, user: current_visitor });
     
     $scope.messages.push({
-      user: current_user,
+      user: current_visitor,
       text: $scope.message,
       me: true
     });
