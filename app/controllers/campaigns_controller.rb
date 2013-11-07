@@ -4,5 +4,9 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
   end
-  
+
+  def index
+    redirect_to Campaign.first_or_create
+  end
+
 end

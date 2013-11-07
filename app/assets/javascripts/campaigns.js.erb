@@ -1,37 +1,6 @@
 var campaign = new function() {
   var self = this;
 
-  self.facebook_user_id;
-  window.fbAsyncInit = function() {
-    // init the FB JS SDK
-    FB.init({
-      appId      : 274502345950784, // App ID from the App Dashboard
-      status     : false, // check the login status upon init?
-      cookie     : true, // set sessions cookies to allow your server to access the session?
-      xfbml      : true  // parse XFBML tags on this page?
-    });
-
-    // Additional initialization code such as adding Event Listeners goes here
-    FB.getLoginStatus(function(response){
-      campaign.facebook_user_id = FB.getUserID();
-      FB.api('/me', function(response) {
-        campaign.fb_response = response;
-        if (campaign.fb_response.error == undefined) {
-          $('.name').text(campaign.fb_response.first_name);
-          $('.name_box, .facebook').show();
-        }
-      });
-    });
-  };
-
-  (function(d, debug){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document, false));
-
   window.onYouTubeIframeAPIReady = function() {
       self.player = new YT.Player('player', {
         height: '390',

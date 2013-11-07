@@ -1,0 +1,37 @@
+$.god_chat = {}
+
+$(function() {
+    var page = $("body").data("page");
+    if("object" === typeof window[page])
+        window[page].init();
+});
+
+window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+        appId      : <%= ENV['fb_app_id'] %>, // App ID from the App Dashboard
+        status     : false, // check the login status upon init?
+        cookie     : true, // set sessions cookies to allow your server to access the session?
+        xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+    FB.getLoginStatus(function(response){
+        $.god_chat.facebook_user_id = FB.getUserID();
+        FB.api('/me', function(response) {
+            fb_response = response;
+            if (fb_response.error == undefined) {
+                $('.name').text(fb_response.first_name);
+                $('.name_box, .facebook').show();
+            }
+        });
+    });
+};
+
+(function(d, debug){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+    ref.parentNode.insertBefore(js, ref);
+}(document, false));
