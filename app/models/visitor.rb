@@ -3,7 +3,7 @@ class Visitor < ActiveRecord::Base
   has_many :insiders, through: :conversations
   belongs_to :last_campaign, :class_name => "Campaign", :foreign_key => "last_campaign_id"
   
-  before_create :get_fb_profile, :create_missionhub_contact, :set_channel
+  before_create :get_fb_profile, :create_missionhub_contact
 
   def get_fb_profile
     profile = JSON.parse(RestClient.get("https://graph.facebook.com?id=#{fb_uid}"))
@@ -25,6 +25,10 @@ class Visitor < ActiveRecord::Base
     }
     mh_person = JSON.parse(RestClient.post("#{ENV['missionhub_url']}/apis/v3/people?secret=#{last_campaign.missionhub_secret}", params))['person']
     self.missionhub_id = mh_person['id']
+  end
+
+  def name
+    [first_name, last_name].join(' ')
   end
 
 end

@@ -5,14 +5,14 @@ class Conversation < ActiveRecord::Base
 
   before_validation :set_channel
 
-  validates :insider_id, :token, :visitor_id, :topic, presence: true
+  validates :insider_id, :channel, :visitor_id, :topic, presence: true
 
   def set_channel
     return channel if channel
 
     loop do
       self.channel = SecureRandom.hex(10)
-      break channel unless Visitor.find_by(channel: channel)
+      break channel unless Conversation.find_by(channel: channel)
     end
   end
 end

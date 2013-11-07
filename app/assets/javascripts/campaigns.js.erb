@@ -1,9 +1,10 @@
-$(document).on('facebook_init', function() {
+$(document).one('facebook_init', function() {
   if ($('.campaign')[0]) {
     // If we don't already have a visitor, create one
     if ($.godchat.visitor['id'] == null) {
       $.post('/visitors', {fb_uid: $.godchat.facebook_user_id}, 'script')
     }
+    $(document).trigger('visitor_init')
   }
 });
 
@@ -69,7 +70,7 @@ var campaign = new function() {
     // campaign.player.seekTo(0);
     // campaign.player.playVideo();
 
-    $(document).one('facebook_init',function(){
+    $(document).one('visitor_init',function(){
       if($.godchat.facebook_user_id) {
         $.ajax("/find_friends.json?id="+$.godchat.facebook_user_id).
           done(function(data) {
