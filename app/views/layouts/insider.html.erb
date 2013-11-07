@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="insider">
   <head>
-    <title>Godchat</title>
+    <title>Godchat | Conversation</title>
     <%= stylesheet_link_tag "insider/application", :media => "all" %>
     <%= csrf_meta_tags %>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -20,12 +20,10 @@
       <%= yield %>
     </div>
     <script src="http://js.pusher.com/2.1/pusher.min.js"></script>
-    <%= javascript_include_tag "application" %>
     <script>
-      $(function() {
-        $.godchat.visitors = <%= @visitors.to_json.html_safe %>;
-      })
-
+      var visitors = <%= @visitors.to_json.html_safe %>;
+      var current_user = <%= current_user.to_json.html_safe %>;
     </script>
+    <%= javascript_include_tag "insider/application" %>
   </body>
 </html>

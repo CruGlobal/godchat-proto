@@ -15,13 +15,16 @@
     <div class="content">
       <%= yield %>
     </div>
+
+    <script>
+        var fb_app_id = <%= ENV['fb_app_id'] %>;
+    </script>
     <%= javascript_include_tag "application" %>
     <script>
-      $(function() {
-        $.godchat.visitor = <%= current_visitor.to_json.html_safe %>;
-        $.godchat.campaign_id = <%= @campaign.id %>;
-      })
-
+        $(function() {
+          $.godchat.visitor = <%= current_visitor.to_json.html_safe %>;
+          $.godchat.campaign_id = <%= session[:campaign_id] %>;
+        });
     </script>
   </body>
 </html>

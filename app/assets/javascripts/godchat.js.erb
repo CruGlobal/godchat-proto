@@ -13,7 +13,7 @@ $.godchat.getFacebookId = function() {
 window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
-        appId      : <%= ENV['fb_app_id'] %>, // App ID from the App Dashboard
+        appId      : fb_app_id, // App ID from the App Dashboard
         status     : false, // check the login status upon init?
         cookie     : true, // set sessions cookies to allow your server to access the session?
         xfbml      : true  // parse XFBML tags on this page?

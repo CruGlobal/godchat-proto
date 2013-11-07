@@ -20,108 +20,86 @@ body
       font-family: Lato, sans-serif
     .nav > .active > a.user
       background-color: #45B29D
+      line-height: 25px
       &:hover
         background-color: transparent
-    .viewport
+      .caret
+        display: none
+      .avatar img
+        width: 25px
+        border-radius: 3px
+        margin-right: 10px
+  #visitors
+    position: fixed
+    left: 0
+    top: 45px
+    bottom: 0
+    width: 150px
+    background: #e7e7e7
+    ul
+      list-style: none
+      margin: 0
+      li
+        padding: 20px
+        border-bottom: 1px #ccc solid
+        cursor: pointer
+        .avatar img
+          width: 25px
+          border-radius: 3px
+          margin-right: 10px
+        a
+          cursor: pointer
+          &:hover
+            text-decoration: none
+        &.active
+          background-color: #6db7b4
+          border-color: #6db7b4
+          a
+            color: #fff
+  #messages
+    position: fixed
+    left: 150px
+    top: 45px
+    bottom: 0
+    width: 250px
+    background: #efefef
+    border-right: 1px #ccc solid
+    ul
+      list-style: none
+      margin: 0
+      li
+        padding: 10px
+        border-bottom: 1px #ccc solid
+        .text
+          padding-bottom: 4px
+        .timestamp
+          color: #999
+          font-size: smaller
+          .avatar img
+            width: 20px
+            border-radius: 3px
+            margin-right: 5px
+            margin-top: -2px
+    .send-msg
       position: absolute
-      top: 0
-      right: 0
-      bottom: 0
+      bottom: 60px
       left: 0
-      overflow: hidden
-      .frame
-        position: absolute
-        width: 200%
-        height: 100%
-        top: 0
-        bottom: 0
-        left: 0
-        .navbar
-          margin-bottom: 0
-          .navbar-inner
-            background: #249AA7
-            border: 0
-            border-radius: 0
-            padding-left: 5px
-            a
-              color: white
-              padding: 5px
-              display: block
-              float: left
-              img
-                width: 36px
-                border-radius: 5px
-                margin-right: 10px
-              &:hover
-                text-decoration: none
-                cursor: pointer
-        .menu
-          height: 100%
-          background-color: #373737
-          &.collapse
-            float: left
-            height: 100% !important
-            width: auto
-            &.height
-              position: relative
-              height: 0
-              overflow: hidden
-              -webkit-transition: height 0.35s ease
-              -moz-transition: height 0.35s ease
-              -o-transition: height 0.35s ease
-              transition: height 0.35s ease
-            &.width
-              position: relative
-              width: 0
-              overflow: hidden
-              -webkit-transition: width 0.35s ease
-              -moz-transition: width 0.35s ease
-              -o-transition: width 0.35s ease
-              transition: width 0.35s ease
-            &.in
-              &.width
-                width: auto
-              &.height
-                height: auto
-          .collapse-inner
-            position: relative
-            width: 250px
-            height: 100%
-          .navbar
-            margin: 0
-            .navbar-inner
-              text-align: center
-              font-size: 12px
-              line-height: 33.75px
-              padding: 0 8px
-              color: #959595
-              min-height: 33px
-              background: #515151
-              text-align: left
-          .nav-stacked
-            padding: 0
-            li
-              background: #484848
-              a
-                border: 0
-                border-radius: 0
-                font-size: 17px
-                font-weight: 500
-                line-height: 40px
-                color: #d9d9d9
-                &:hover
-                  color: #fff
-                  background: transparent
-                  cursor: pointer
-        .view
-          width: 50%
-          height: 100%
-          overflow: hidden
-          .navbar .navbar-inner .btn-navbar
-            display: block
-            float: left
-          #content
-            position: absolute
-            text-align: justify
-            width: 100%
-            height: 100%
+      right: 0
+      padding: 10px
+      margin-bottom: -60px
+      background: #fff
+      overflow: auto
+      textarea
+        resize: none
+        outline: none
+        margin: 0
+        width: 100%
+        padding: 0
+        border: 0
+        box-shadow: none
+        &:focus
+          outline-color: transparent
+          outline-style: none
+
+
+

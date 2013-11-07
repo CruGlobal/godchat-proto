@@ -188,7 +188,6 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.8.2)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
     newrelic_rpm (3.6.8.168)
     nokogiri (1.5.10)
     oauth (0.4.7)
@@ -373,7 +372,6 @@ DEPENDENCIES
   jshintrb
   kaminari
   koala
-  mysql2
   newrelic_rpm
   omniauth
   omniauth-facebook

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :languages
 
+  has_many :conversations, foreign_key: :insider_id
+  has_many :outsiders, through: :conversations
+
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   # constants

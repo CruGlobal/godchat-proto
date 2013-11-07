@@ -1,9 +1,9 @@
 app.controller('MasterController', function($scope, $modal, socket) {
-  $scope.users = channels;
+  $scope.users = visitors;
 
   $scope.me = current_user;
 
-  $scope.selectedConversation = null;
+  $scope.selectedConversation = visitors[0];
 
   // Socket listeners
   // ================

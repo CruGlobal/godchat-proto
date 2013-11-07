@@ -19,7 +19,7 @@ Chatapp::Application.routes.draw do
     end
 
     resources :insiders do
-      member do
+      collection do
         post 'auth'
       end
     end

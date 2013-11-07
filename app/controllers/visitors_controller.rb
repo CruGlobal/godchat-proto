@@ -6,6 +6,7 @@ class VisitorsController < ApplicationController
   end
 
   def chat
+    render layout: "campaigns"
   end
 
   def auth
