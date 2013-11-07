@@ -86,8 +86,7 @@ var campaign = new function() {
               list_html += "</ul>";
               $('#friends').html(list_html);
               $('.mh-friend').click(function(evt) {
-                var elm = $(evt.target).closest('li')
-                alert('click ' + elm.attr('id').substr(7))
+                var friend_id = $(evt.target).closest('li').attr('id').substr(7)
               })
               // $('.other_connections').hide();
             }
