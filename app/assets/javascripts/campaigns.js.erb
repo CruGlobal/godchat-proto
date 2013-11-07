@@ -1,3 +1,12 @@
+$(document).on('facebook_init', function() {
+  if ($('.campaign')[0]) {
+    // If we don't already have a visitor, create one
+    if (visitor['id'] == null) {
+      $.post('/visitors', {fb_uid: $.godchat.facebook_user_id}, 'script')
+    }
+  }
+});
+
 var campaign = new function() {
   var self = this;
 

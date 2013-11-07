@@ -3,6 +3,7 @@ class CampaignsController < ApplicationController
   layout 'campaigns'
   def show
     @campaign = Campaign.find(params[:id])
+    session[:campaign_id] = @campaign.id
   end
 
   def index
