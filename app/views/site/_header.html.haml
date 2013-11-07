@@ -22,10 +22,10 @@
           %li
             %a{href: "http://support.godchat.tv/"} Support
           %li.navbar-text
-            |
-            - if current_user.blank?
-              %li{:class => ( "active" if current_page?(new_user_session_path) )}
-                %a{:href => new_user_session_path} Log in
+            -#|
+            -#- if current_user.blank?
+            -#  %li{:class => ( "active" if current_page?(new_user_session_path) )}
+            -#    %a{:href => new_user_session_path} Log in
               %li.navbar-text.no-space
                 or
               %li{:class => ( "active" if current_page?(new_user_registration_path) )}

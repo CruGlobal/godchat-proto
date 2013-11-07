@@ -1,7 +1,7 @@
 $(document).on('facebook_init', function() {
   if ($('.campaign')[0]) {
     // If we don't already have a visitor, create one
-    if (visitor['id'] == null) {
+    if ($.godchat.visitor['id'] == null) {
       $.post('/visitors', {fb_uid: $.godchat.facebook_user_id}, 'script')
     }
   }
@@ -76,17 +76,23 @@ var campaign = new function() {
             var people = data.people;
             if(people.length > 0) {
               var list_html = "<p>These friends may be able to help, click one to invite them to a conversation</p><ul class='people_pic_list'>";
-              for(var p in people) {
-                p = people[p];
+              for(var i in people) {
+                p = people[i];
                 var name = p.first_name+" "+p.last_name
                 if(!p.picture)
                   p.picture = "<%= asset_path('avatar.png') %>"
-                list_html += "<li class='mh-friend' id='friend-"+p.id+"''><img src='"+p.picture+"' alt='"+name+"' title='"+name+"'>"+p.first_name+"</li>";
+                list_html += '<li class="mh-friend" data-index="'+i+'"><img src="'+p.picture+'" alt="'+name+'" title="'+name+'">'+p.first_name+'</li>';
               }
               list_html += "</ul>";
               $('#friends').html(list_html);
               $('.mh-friend').click(function(evt) {
-                var friend_id = $(evt.target).closest('li').attr('id').substr(7)
+                var person_index = $(evt.target).closest('li').attr('data-index');
+                person = people[person_index]
+                params = {'insider' : person,
+                          'visitor' : $.godchat.visitor,
+                          'campaign_id' : $.godchat.campaign_id}
+                conversation_link = $.post('/conversations', params, 'json')['link']
+                //Spencer: All yours buddy!
               })
               // $('.other_connections').hide();
             }

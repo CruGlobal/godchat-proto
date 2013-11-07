@@ -9,14 +9,19 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script>
-        visitor = <%= current_visitor.to_json.html_safe %>
-    </script>
+
   </head>
   <body class="<%= params[:controller].singularize %>" data-page="<%= params[:controller].singularize %>">
     <div class="content">
       <%= yield %>
     </div>
     <%= javascript_include_tag "application" %>
+    <script>
+      $(function() {
+        $.godchat.visitor = <%= current_visitor.to_json.html_safe %>;
+        $.godchat.campaign_id = <%= @campaign.id %>;
+      })
+
+    </script>
   </body>
 </html>

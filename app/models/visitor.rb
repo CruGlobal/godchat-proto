@@ -27,11 +27,4 @@ class Visitor < ActiveRecord::Base
     self.missionhub_id = mh_person['id']
   end
 
-  def set_channel
-    self.channel ||= SecureRandom.hex(20)
-    while Visitor.find_by(channel: channel)
-      self.channel = nil
-      set_channel
-    end
-  end
 end

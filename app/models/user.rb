@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin insider friend]
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
+  devise :registerable, :trackable
 
   has_and_belongs_to_many :languages
 

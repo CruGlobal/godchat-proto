@@ -4,6 +4,7 @@ Chatapp::Application.routes.draw do
 
   resources :campaigns
   resources :visitors
+  resources :conversations
 
   authenticated :user do
     namespace :engineer do
@@ -12,15 +13,11 @@ Chatapp::Application.routes.draw do
       resources :organizations
     end
 
-    namespace :insider do
-      root to: "dashboard#index"
-      post 'auth', to: "dashboard#auth"
+    resources :insiders do
+      member do
+        post 'auth'
+      end
     end
-  end
-  
-  namespace :friend do
-    root to: "dashboard#index"
-    post 'auth', to: "dashboard#auth"
   end
   
   root to: "site#index"
@@ -31,5 +28,5 @@ Chatapp::Application.routes.draw do
 
   get 'find_friends' => 'friends#find'
 
-  get '/f/:token', action: "connect", controller: 'friend/dashboard'
+  get '/c/:channel', action: 'show', controller: 'conversations'
 end
