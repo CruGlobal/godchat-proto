@@ -20,7 +20,9 @@ Chatapp::Application.routes.draw do
     end
   end
   
-  root to: "site#index"
+  root to: "site#index", :constraints => { :domain => ENV['app_url'] }
+  root to: "campaigns#index", as: :campaign_root
+
   get '/tour', to: "site#tour", as: :tour
   get '/features', to: "site#features", as: :features
 

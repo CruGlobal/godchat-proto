@@ -1,5 +1,15 @@
 $.godchat = {}
-
+$.godchat.getFacebookId = function() {
+  $.godchat.facebook_user_id = FB.getUserID();
+  $(document).trigger('facebook_init');
+  FB.api('/me', function(response) {
+    fb_response = response;
+    if (fb_response.error == undefined) {
+      $('.name').text(fb_response.first_name);
+      $('.name_box, .facebook').show();
+    }
+  });
+}
 window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
@@ -11,15 +21,11 @@ window.fbAsyncInit = function() {
 
     // Additional initialization code such as adding Event Listeners goes here
     FB.getLoginStatus(function(response){
-        $.godchat.facebook_user_id = FB.getUserID();
-        FB.api('/me', function(response) {
-            fb_response = response;
-            if (fb_response.error == undefined) {
-                $('.name').text(fb_response.first_name);
-                $('.name_box, .facebook').show();
-            }
-        });
-        $(document).trigger('facebook_init');
+      if (response.status == 'not_authorized') {
+        $('#connect_link').show()
+      } else {
+        $.godchat.getFacebookId()
+      }
     });
 };
 

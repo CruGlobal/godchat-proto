@@ -26,16 +26,17 @@
           %span.name>
           \.
         %p That's great you want to start to follow Jesus. Sometimes, it's easier to start something new when a friend is involved.
-        %p Would you like to invite a friend to chat or would you rather talk with someone we know?
+        -#%p Would you like to invite a friend to chat or would you rather talk with someone we know?
       .panel-body
         #friends
-          %p
-            Sorry, none of your Facebook friends were found on our system.
+          %p#connect_link{style: 'display:none'}
+            = link_to("Connect to Facebook and we'll find one of your friends for you to chat with", '#', onclick: 'FB.login($.godchat.getFacebookId())')
+
         .other_connections
           %h3
             Otherwise:
           #invite-btn.btn.btn-primary.btn-block{onClick: "$('#myfriends').hide();$('#linkafriend').fadeIn();"} Invite a Christian friend
-          .btn.btn-primary.btn-block{onClick: "$('#myfriends').hide();$('#opconnect').fadeIn();"} Find someone for me
+          -#.btn.btn-primary.btn-block{onClick: "$('#myfriends').hide();$('#opconnect').fadeIn();"} Find someone for me
   #linkafriend
     .panel.panel-default
       .panel-heading

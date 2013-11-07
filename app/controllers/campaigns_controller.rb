@@ -7,7 +7,12 @@ class CampaignsController < ApplicationController
   end
 
   def index
-    redirect_to Campaign.first_or_create
+    @campaign = Campaign.find_by(domain: request.host)
+    @campaign ||= Campaign.find(session[:campaign_id]) if session[:campaign_id]
+    @campaign ||= Campaign.first
+    session[:campaign_id] = @campaign.id
+
+    render action: :show
   end
 
 end
