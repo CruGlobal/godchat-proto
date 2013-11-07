@@ -10,13 +10,26 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+ActiveRecord::Schema.define(version: 20131107030651) do
 
-ActiveRecord::Schema.define(version: 20131107025623) do
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "campaigns", force: true do |t|
     t.string   "name"
     t.string   "cname"
-    t.string   "youtube_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,8 +38,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.integer  "outsider_id"
     t.integer  "insider_id"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "comments", ["insider_id"], name: "index_comments_on_insider_id", using: :btree
@@ -36,8 +49,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.string   "topic"
     t.integer  "insider_id"
     t.integer  "outsider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "conversations", ["insider_id"], name: "index_conversations_on_insider_id", using: :btree
@@ -53,8 +66,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
@@ -62,8 +75,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
   create_table "languages", force: true do |t|
     t.string   "name"
     t.string   "locale"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "memberships", force: true do |t|
@@ -72,8 +85,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.boolean  "valid"
     t.boolean  "admin"
     t.boolean  "owner"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "memberships", ["organizations_id"], name: "index_memberships_on_organizations_id", using: :btree
@@ -83,8 +96,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "conversation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
@@ -92,8 +105,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
 
   create_table "organizations", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: true do |t|
@@ -117,8 +130,8 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "first_name"
@@ -130,6 +143,7 @@ ActiveRecord::Schema.define(version: 20131107025623) do
     t.string   "type"
     t.string   "referrer"
     t.string   "authentication_token"
+    t.integer  "roles_mask"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

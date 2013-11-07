@@ -6,7 +6,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "no_reply@godchat.co"
 
-  config.secret_key = ENV['devise_key']
+  config.secret_key = ENV['devise_key'] || "ZXCVBNM"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

@@ -1,10 +1,9 @@
 Chatapp::Application.routes.draw do
-
-  resources :visitors
-
+  ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :campaigns
+  resources :visitors
 
   authenticated :user do
     namespace :engineer do
@@ -17,6 +16,11 @@ Chatapp::Application.routes.draw do
       root to: "dashboard#index"
       post 'auth', to: "dashboard#auth"
     end
+  end
+  
+  namespace :friend do
+    root to: "dashboard#index"
+    post 'auth', to: "dashboard#auth"
   end
   
   root to: "site#index"
