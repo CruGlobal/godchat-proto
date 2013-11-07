@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Godchat</title>
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "frontend/application", :media => "all" %>
     <%= csrf_meta_tags %>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -13,7 +13,10 @@
   </head>
   <body class="<%= params[:controller] %>" data-page="<%= params[:controller] %>">
     <div class="content">
-      <%= javascript_include_tag "application" %>
+      <%= render 'header' %>
+      <%= yield %>
+      <%= render 'footer' %>
     </div>
+    <%= javascript_include_tag "frontend/application" %>
   </body>
 </html>
