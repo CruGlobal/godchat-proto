@@ -92,9 +92,18 @@ var campaign = new function() {
                 params = {'insider' : person,
                           'visitor' : $.godchat.visitor,
                           'campaign_id' : $.godchat.campaign_id}
-                conversation_link = $.post('/conversations', params, 'json')['link']
-                //Spencer: All yours buddy!
-              })
+                $.post('/conversations', params, 'json')
+                  .success(function(resp) {
+                    conversation_link = resp['link']
+                    //Spencer: All yours buddy!
+                    FB.ui({
+                      method: 'send',
+                      app_id: '245304575627713',
+                      link: conversation_link,
+                      to: "100000701066608"
+                    });
+                });
+              });
               // $('.other_connections').hide();
             }
           });
