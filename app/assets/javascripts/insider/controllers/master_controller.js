@@ -1,17 +1,13 @@
 app.controller('MasterController', function($scope, $modal, socket) {
-  $scope.users = [];
-  $scope.auth = {
-      "secret": "operatorSecret",
-      "token": "abc",
-    "time": (new Date()).getTime(),
-    "location": window.location.href
-  };
+  $scope.users = channels;
+
+  $scope.me = current_user;
 
   $scope.selectedConversation = null;
 
   // Socket listeners
   // ================
-
+  
   socket.bind('call_connected', function (data) {
     $scope.users.push(data);
   });

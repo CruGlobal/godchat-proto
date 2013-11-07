@@ -7,75 +7,21 @@ body
   margin: 0
   padding: 0
   padding-top: 70px
-  .navbar-inverse
+  .navbar-inverse .navbar-inner
+    padding: 0 10px
+    background: asset-url('dimension.png')
     background-color: #45B29D
     border: 0
-  .navbar-brand strong
-    color: #fff
-    .text-muted
+    text-shadow: none
+    .brand
       color: #fff
-      opacity: 0.4
-  .navbar-inverse .navbar-nav > .active > a
-    background-color: transparent
-    &:hover
-      background-color: transparent
-  .user
-    img
-      width: 20px
-      margin-right: 10px
-    #messages
-      position: absolute
-      top: 0
-      bottom: 46px
-      left: 200px
-      right: 50%
-      background-color: #e4e4e4
-      overflow: auto
-      .send-msg
-        position: fixed
-        bottom: 0
-        left: 200px
-        right: 13px
-        margin: 0
-        padding: 0
-        background: #fff
-        textarea
-          width: 100%
-          height: 100%
-          padding: 10px
-          margin: 0
-          border: 0
-          outline: none
-          border-radius: 0
-          resize: none
-          color: #262626
-          font-size: 13px
-          &:focus
-            outline: none
-      ul
-        padding: 10px
-        list-style: none
-        margin: 0
-        li.message
-          .avatar
-            float: left
-            img
-              height: 30px
-          .msg
-            padding: 10px
-            margin-left: 35px
-            background: #fff
-            border: 1px #ccc solid
-            .timestamp
-              color: #ccc
-              font-size: 11px
-          &.me
-            .avatar
-              float: right
-            .msg
-              margin: 0
-              margin-right: 35px
-              text-align: right
+      font-weight: bold
+      font-size: 15px
+      font-family: Lato, sans-serif
+    .nav > .active > a.user
+      background-color: #45B29D
+      &:hover
+        background-color: transparent
     .viewport
       position: absolute
       top: 0

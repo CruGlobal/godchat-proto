@@ -1,0 +1,51 @@
+.viewport
+  .frame
+    %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .navbar-inner
+        %a.brand{href: "#"} 
+          %i.icon-comments-alt &nbsp;
+          Godchat
+        %ul.nav.pull-right
+          %li.dropdown.active
+            %a.dropdown-toggle.user{"data-toggle" => "dropdown", href: "#"}
+              = image_tag "letter-avatars/#{current_user.first_name[0].downcase}.png", id: ""
+              = current_user.first_name
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a Account Settings
+              %li
+                %a Support
+              %li
+                = link_to("Sign out", destroy_user_session_path, :method => :delete)
+    #content
+      %div{"ng-controller" => "MasterController"}
+        #seekers
+          %ul{"ng-repeat" => "user in users"}
+            %li.user{"ng-class" => "{active:selectedConversation==user}"}
+              %a{"ng-click" => "selectConversation(user)"}
+                %img{"ng-src" => "/letter-avatars/{{user.first_name[0].toLowerCase()}}.png"}/
+                {{capitaliseFirstLetter(user.first_name)}}
+        #messages
+          %div{"ng-repeat" => "user in users", "ng-controller" => "VisitorController", "ng-show" => "selectedConversation == user"}
+            %ul{"ng-repeat" => "message in messages", "ng-controller" => "MessageController"}
+              %li.message{"ng-class" => "{me: message.me}"}
+                %div.avatar
+                  %img{"ng-src" => "/letter-avatars/{{message.user.first_name[0].toLowerCase()}}.png"}/
+                .msg
+                  {{message.text}}
+                  .timestamp
+                    {{capitaliseFirstLetter(message.user.first_name)}} • 
+                    %span{"am-time-ago" => "time"}
+            .send-msg
+              %textarea.msd-elastic{"ng-model" => "message", :placeholder => "Send a message...", "ng-enter" => "sendMessage()"}
+%script{id: "call_request.html", type: "text/ng-template"}
+  .modal-dialog
+  .modal-content
+    .modal-header
+      %h3 Incoming Call
+    .modal-body
+      {{data.name}}
+    .modal-footer
+      %button.btn.btn-primary{"ng-click" => "ok()"} OK
+      %button.btn.btn-warning{"ng-click" => "cancel()"} Cancel

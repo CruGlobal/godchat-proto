@@ -1,8 +1,8 @@
 !!!
-%html{"ng-app" => "operator"}
+%html{"ng-app" => "insider"}
   %head
-    %title Chatapp
-    = stylesheet_link_tag "agent/application", :media => "all"
+    %title Godchat
+    = stylesheet_link_tag "insider/application", :media => "all"
     = csrf_meta_tags
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
@@ -12,4 +12,4 @@
   %body.pull_top
     = yield
     = javascript_include_tag "http://js.pusher.com/2.1/pusher.min.js"
-    = javascript_include_tag "agent/application"
+    = javascript_include_tag "insider/application"
