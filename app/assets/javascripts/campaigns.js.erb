@@ -58,15 +58,6 @@ var campaign = new function() {
       $('.box, #chat, .invite').removeClass('paused');
     };
 
-  self.showNextStep = function(objectHide, objectShow, current, next) {
-    campaign.bt.hideStep( current );
-    $(objectHide).fadeOut(function() {
-      $(objectShow).fadeIn(function() {
-        campaign.bt.goto(next);
-      });
-    });
-  }
-
   self.init = function() {
     $('.name_box, .facebook, .new-article, .old-article').hide();
 
@@ -78,103 +69,28 @@ var campaign = new function() {
     // campaign.player.seekTo(0);
     // campaign.player.playVideo();
 
-    self.bt.addSteps([
-      {
-        placement: "left",
-        element: "#myfriends",
-        title: "Invite a Friend",
-        container: "#chat",
-        content: "<p class='lead'>Isn't everything more fun with friends?</p><p>Finding Christ is no exception to that rule. <span class='facebook'>If your visitors are signed into Facebook, we can make use of that connection.</span></p><a href='#' onclick='$(\"#invite-btn\").click()'><div class='alert alert-info text-center'>Click an answer</div></a>",
-        next: -1,
-        onPrev: function(bt) {
-          $('#myfriends').hide();
-          $('#willyoufollow').fadeIn();
-        }
-      },
-      {
-        placement: "left",
-        element: "#linkafriend",
-        title: "Connect to a Christian Friend",
-        container: "#chat",
-        content: "<p class='lead'>The next step is to get your visitors connected with their friends.</p><p>They can share this link and wait for their friend to come online or reconnect at a time that suits then both.<a href='#'onclick='$(\"#findsomeone-btn \").click()'><div class='alert alert-info text-center'>Click the \"Find someone for me instead\" button</div></a>",
-        //next: -1,
-        onNext: function(bt) {
-          $("#findsomeone-btn").click();
-        },
-        onShow: function(bt) {
-          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
-            //$('#player').prop('src', 'http://www.startingwithgod.com/');
-            $('#webpage').show();
-            $('#player').hide();
-            $('#linkafriend .new-article').fadeIn();
-            $('#linkafriend .old-article').hide();
-          } else {
-            $('#linkafriend .new-article').hide();
-            $('#linkafriend .old-article').fadeIn();
-          }
-        },
-        onPrev: function(bt) {
-          $('#webpage').hide();
-          $('#player').show();
-          $('#linkafriend').hide();
-          $('#myfriends').fadeIn();
-        }
-      },
-      {
-        placement: "left",
-        element: "#opconnect",
-        title: "Connect with a Godchat Operator",
-        container: "#chat",
-        prev: 3,
-        content: "<p class='lead'>After a friend, a Godchat Operator is the next best option.</p><p>Godchat will go off and attempt to find someone who can connect and negotiate a connection between your visitors and available operators.<p>",
-        onShow: function(bt) {
-          if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
-            $('#player').prop('src', 'http://www.startingwithgod.com/');
-            $('#opconnect .new-article').fadeIn();
-            $('#opconnect .old-article').hide();
-          } else {
-            $('#opconnect .new-article').hide();
-            $('#opconnect .old-article').fadeIn();
-          }
-
-        },
-        onPrev: function(bt) {
-          $('#opconnect').hide();
-          $('#myfriends').fadeIn();
-        },
-        onNext: function(bt) {
-          $('#chatbox').fadeIn();
-        }
-      },
-      {
-        placement: "left",
-        element: "#chatbox",
-        title: "Chat",
-        container: "#chat",
-        prev: 5,
-        content: "<p class='lead'>This is chat in action.</p><p>Here is an example chat just getting started.<p>",
-
-        onPrev: function(bt) {
-          $('#chat').fadeOut();
-        }
-      }
-    ]);
-
     $(document).one('facebook_init',function(){
       if($.godchat.facebook_user_id) {
         $.ajax("/find_friends.json?id="+$.godchat.facebook_user_id).
           done(function(data) {
             var people = data.people;
-            var list_html = "<ul class='people_pic_list'>";
-            for(var p in people) {
-              p = people[p];
-              var name = p.first_name+" "+p.last_name
-              if(!p.picture)
-                p.picture = "<%= asset_path('avatar.png') %>"
-              list_html += "<li id='friend-"+p.id+"''><img src='"+p.picture+"' alt='"+name+"' title='"+name+"'>"+p.first_name+"</li>";
+            if(people.length > 0) {
+              var list_html = "<p>These friends may be able to help, click one to invite them to a conversation</p><ul class='people_pic_list'>";
+              for(var p in people) {
+                p = people[p];
+                var name = p.first_name+" "+p.last_name
+                if(!p.picture)
+                  p.picture = "<%= asset_path('avatar.png') %>"
+                list_html += "<li class='mh-friend' id='friend-"+p.id+"''><img src='"+p.picture+"' alt='"+name+"' title='"+name+"'>"+p.first_name+"</li>";
+              }
+              list_html += "</ul>";
+              $('#friends').html(list_html);
+              $('.mh-friend').click(function(evt) {
+                var elm = $(evt.target).closest('li')
+                alert('click ' + elm.attr('id').substr(7))
+              })
+              // $('.other_connections').hide();
             }
-            list_html += "</ul>";
-            $('#friends').html(list_html);
           });
       }
     });
