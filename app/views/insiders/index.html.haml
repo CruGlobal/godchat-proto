@@ -16,8 +16,8 @@
                 %a Account Settings
               %li
                 %a Support
-              %li
-                = link_to("Sign out", destroy_user_session_path, :method => :delete)
+              -#%li
+                -#= link_to("Sign out", destroy_user_session_path, :method => :delete)
     #content
       %div{"ng-controller" => "MasterController"}
         #seekers

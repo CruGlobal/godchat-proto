@@ -11,7 +11,7 @@
           %a{:href => "/dashboard/settings"}
             = current_user.name
         %li
-          = link_to("Sign out", destroy_user_session_path, "data-method" => :delete)
+          -#= link_to("Sign out", destroy_user_session_path, "data-method" => :delete)
     .navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li.nav-icon{:class=>("active" if request.env['PATH_INFO'] == engineer_root_path) }

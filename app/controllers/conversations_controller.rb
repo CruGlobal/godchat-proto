@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find_by(channel: params[:channel])
     if @conversation
-      session[:user_id] = @conversation.insider_id
+      sign_in(@conversation.insider)
       redirect_to insiders_path and return
     end
   end
