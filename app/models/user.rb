@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :languages
 
-  devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :gplus]
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   # constants
   STATE = {
@@ -23,8 +23,7 @@ class User < ActiveRecord::Base
                           last_name:auth.extra.raw_info.last_name,
                           provider:auth.provider,
                           uid:auth.uid,
-                          email:auth.info.email,
-                          password:Devise.friendly_token[0,20]
+                          email:auth.info.email
                           )
     end
     user

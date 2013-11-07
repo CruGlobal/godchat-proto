@@ -23,18 +23,19 @@
             %a{href: "http://support.godchat.tv/"} Support
           %li.navbar-text
             |
-            - if current_user.blank?
-              %li{:class => ( "active" if current_page?(new_user_session_path) )}
-                %a{:href => new_user_session_path} Log in
-              %li.navbar-text.no-space
-                or
-              %li{:class => ( "active" if current_page?(new_user_registration_path) )}
-                %a.btn.btn-success.navbar-btn{:href => new_user_registration_path} Sign up
-            - else
+          - if current_user.blank?
+            %li
+              %a{:href => user_omniauth_authorize_path(:facebook)}
+                Sign in
+            %li.navbar-text.no-space
+              or
+            %li{:class => ( "active" if current_page?(new_user_registration_path) )}
+              %a.btn.btn-success.navbar-btn{:href => new_user_registration_path} Sign up
+          - else
 
-              %li
-                %a{:href => insider_root_path} Dashboard
-              %li.navbar-text
-                |
-              %li
-                = link_to("Sign out", destroy_user_session_path, :method => :delete)
+            %li
+              %a{:href => insider_root_path} Dashboard
+            %li.navbar-text
+              |
+            %li
+              = link_to("Sign out", destroy_user_session_path, :method => :delete)
