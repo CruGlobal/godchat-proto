@@ -93,7 +93,6 @@ var campaign = new function() {
           $("#findsomeone-btn").click();
         },
         onShow: function(bt) {
-          $('#friends').load("find_friends.js")
           if ( $('#player').prop('src') != 'http://www.startingwithgod.com/') {
             //$('#player').prop('src', 'http://www.startingwithgod.com/');
             $('#webpage').show();
@@ -151,6 +150,25 @@ var campaign = new function() {
         }
       }
     ]);
+
+    $(document).one('facebook_init',function(){
+      if($.godchat.facebook_user_id) {
+        $.ajax("/find_friends.json?id="+$.godchat.facebook_user_id).
+          done(function(data) {
+            var people = data.people;
+            var list_html = "<ul class='people_pic_list'>";
+            for(var p in people) {
+              p = people[p];
+              var name = p.first_name+" "+p.last_name
+              if(!p.picture)
+                p.picture = "<%= asset_path('avatar.png') %>"
+              list_html += "<li id='friend-"+p.id+"''><img src='"+p.picture+"' alt='"+name+"' title='"+name+"'>"+p.first_name+"</li>";
+            }
+            list_html += "</ul>";
+            $('#friends').html(list_html);
+          });
+      }
+    });
 
     self.tag = document.createElement('script');
     self.title = document.title;
