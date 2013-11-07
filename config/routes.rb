@@ -28,5 +28,5 @@ Chatapp::Application.routes.draw do
 
   get 'find_friends' => 'friends#find'
 
-  get '/c/:channel', action: 'show', controller: 'conversations', as: :channel_conversation
+  get '/c/:channel', action: 'index', controller: 'insiders', as: :channel_conversation
 end

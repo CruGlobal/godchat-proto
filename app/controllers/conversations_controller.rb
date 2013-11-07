@@ -1,12 +1,4 @@
 class ConversationsController < ApplicationController
-  def show
-    @conversation = Conversation.find_by(channel: params[:channel])
-    if @conversation
-      sign_in(@conversation.insider)
-      redirect_to insiders_path and return
-    end
-  end
-
   def create
     campaign = Campaign.find(params[:campaign_id])
     visitor = Visitor.find(params[:visitor][:id])
