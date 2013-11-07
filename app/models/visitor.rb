@@ -6,7 +6,7 @@ class Visitor < ActiveRecord::Base
   before_create :get_fb_profile, :create_missionhub_contact, :set_channel
 
   def get_fb_profile
-    profile = RestClient.get("https://graph.facebook.com?id=#{fb_uid}")
+    profile = JSON.parse(RestClient.get("https://graph.facebook.com?id=#{fb_uid}"))
     self.first_name = profile['first_name']
     self.last_name = profile['last_name']
     self.fb_username = profile['username']
