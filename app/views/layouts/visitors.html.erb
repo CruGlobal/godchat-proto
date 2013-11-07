@@ -19,6 +19,7 @@
       <%  conversation = current_visitor.conversations.first %>
       var users = [<%= conversation.visitor.attributes.merge(channel: conversation.channel).to_json.html_safe %>];
       var current_visitor = <%= current_visitor.to_json.html_safe %>;
+      current_visitor.uid = current_visitor.fb_uid;
     </script>
     <%= javascript_include_tag "visitors/application" %>
   </body>
