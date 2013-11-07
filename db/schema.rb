@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106200338) do
+ActiveRecord::Schema.define(version: 20131107025623) do
 
   create_table "campaigns", force: true do |t|
     t.string   "name"
@@ -138,6 +138,17 @@ ActiveRecord::Schema.define(version: 20131106200338) do
   create_table "users_languages", force: true do |t|
     t.integer "user_id"
     t.integer "language_id"
+  end
+
+  create_table "visitors", force: true do |t|
+    t.string   "fb_uid"
+    t.string   "channel"
+    t.integer  "missionhub_id"
+    t.integer  "campaign_id"
+    t.string   "locale"
+    t.text     "answers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

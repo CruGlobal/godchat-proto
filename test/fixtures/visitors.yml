@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fb_uid: MyString
+  channel: MyString
+  missionhub_id: 1
+  campaign_id: 1
+  locale: MyString
+  answers: MyText
+
+two:
+  fb_uid: MyString
+  channel: MyString
+  missionhub_id: 1
+  campaign_id: 1
+  locale: MyString
+  answers: MyText
