@@ -1,11 +1,5 @@
 $.godchat = {}
 
-$(function() {
-    var page = $("body").data("page");
-    if("object" === typeof window[page])
-        window[page].init();
-});
-
 window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
