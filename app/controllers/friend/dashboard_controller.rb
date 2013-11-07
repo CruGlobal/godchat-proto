@@ -18,5 +18,10 @@ class Friend::DashboardController < ApplicationController
       render :text => "Forbidden", :status => '403'
     end
   end
+
+  def connect
+    sign_in User.find(4)
+    @channel_name = "TEST"
+  end
   
 end
