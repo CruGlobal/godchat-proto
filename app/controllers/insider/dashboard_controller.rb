@@ -1,4 +1,4 @@
-class Agent::DashboardController < ApplicationController
+class Insider::DashboardController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
   layout 'agent'
   def index

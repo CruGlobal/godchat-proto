@@ -12,7 +12,7 @@ Chatapp::Application.routes.draw do
       resources :organizations
     end
 
-    namespace :agent do
+    namespace :insider do
       root to: "dashboard#index"
       post 'auth', to: "dashboard#auth"
     end
@@ -30,4 +30,6 @@ Chatapp::Application.routes.draw do
   post '/pusher/presence' => 'pusher#presence'
 
   get 'find_friends' => 'friends#find'
+
+  get '/f/:token', action: "connect", controller: 'friend/dashboard'
 end
