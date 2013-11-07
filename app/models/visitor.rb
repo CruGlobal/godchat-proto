@@ -24,7 +24,6 @@ class Visitor < ActiveRecord::Base
         }
     }
     mh_person = JSON.parse(RestClient.post("#{ENV['missionhub_url']}/apis/v3/people?secret=#{last_campaign.missionhub_secret}", params))
-    raise mh_person.inspect
     self.missionhub_id = mh_person['id']
   end
 
