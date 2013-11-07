@@ -1,4 +1,4 @@
-$.god_chat = {}
+$.godchat = {}
 
 $(function() {
     var page = $("body").data("page");
@@ -17,7 +17,7 @@ window.fbAsyncInit = function() {
 
     // Additional initialization code such as adding Event Listeners goes here
     FB.getLoginStatus(function(response){
-        $.god_chat.facebook_user_id = FB.getUserID();
+        $.godchat.facebook_user_id = FB.getUserID();
         FB.api('/me', function(response) {
             fb_response = response;
             if (fb_response.error == undefined) {
