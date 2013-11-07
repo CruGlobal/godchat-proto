@@ -23,7 +23,7 @@ class Visitor < ActiveRecord::Base
               fb_uid: fb_uid
         }
     }
-    mh_person = JSON.parse(RestClient.post("#{ENV['missionhub_url']}/apis/v3/people?secret=#{last_campaign.missionhub_secret}", params))
+    mh_person = JSON.parse(RestClient.post("#{ENV['missionhub_url']}/apis/v3/people?secret=#{last_campaign.missionhub_secret}", params))['person']
     self.missionhub_id = mh_person['id']
   end
 
