@@ -32,10 +32,9 @@
             %li{:class => ( "active" if current_page?(new_user_registration_path) )}
               %a.btn.btn-success.navbar-btn{:href => new_user_registration_path} Sign up
           - else
-
-              %li
-                %a{:href => insider_root_path} Dashboard
-              %li.navbar-text
-                -#|
-              -#%li
-                -#= link_to("Sign out", destroy_user_session_path, :method => :delete)
+            %li
+              %a{:href => insiders_path} Dashboard
+            %li.navbar-text
+              |
+            %li
+              =# link_to("Sign out", destroy_user_session_path, :method => :delete)
