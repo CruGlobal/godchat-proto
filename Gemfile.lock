@@ -202,8 +202,6 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
-    omniauth-gplus (1.2.0)
-      omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -375,7 +373,6 @@ DEPENDENCIES
   newrelic_rpm
   omniauth
   omniauth-facebook
-  omniauth-gplus
   omniauth-twitter
   paperclip (~> 3.0)
   pg
