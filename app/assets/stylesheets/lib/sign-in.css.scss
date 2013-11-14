@@ -260,28 +260,19 @@
     border:1px solid #DFDFDF;
     border-radius: 5px;
     width: 90%;
-    padding: 35px 0 30px;
+    padding: 35px 20px;
 }
 #sign_in2 .signin_box .box .box_cont{
     margin: 0 auto;
     width: 77%;
 }
 #sign_in2 .signin_box .box .social{
-    margin: 0 auto 20px;
+    margin: 20px auto 0;
     float: none;
     text-align: center;
 }
-#sign_in2 .signin_box .box .social a.circle{
-    text-align: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 100%;
-    margin-right:34px;
-    display: inline-block;
-    -webkit-transition: border-color ease-in .1s;
-    -moz-transition: border-color ease-in .1s;
-    -o-transition: border-color ease-in .1s;
-    transition: border-color ease-in .1s;
+#sign_in2 .signin_box a{
+    color: #fff;
 }
 #sign_in2 .signin_box .box .social a.circle img{
     display: inline-block;
