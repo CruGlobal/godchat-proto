@@ -1,0 +1,47 @@
+<footer id='footer'>
+  <div class='container'>
+    <div class='row info'>
+      <div class='col-md-6 residence'>
+        <ul>
+          <li>100 Lake Hart Drive; Dept 2100</li>
+          <li>Orlando FL 32832</li>
+        </ul>
+      </div>
+      <div class='col-md-5 touch'>
+        <ul class='pull-right'>
+          <li>
+            <strong>E:</strong>
+            <%= mail_to('contact@godchat.tv', 'contact@godchat.tv') %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class='row credits'>
+      <div class='col-md-12'>
+        <div class='row social'>
+          <div class='col-md-12'>
+            <a class='facebook' href='http://www.facebook.com/indigitous'>
+              <span class='socialicons ico1'></span>
+              <span class='socialicons_h ico1h'></span>
+            </a>
+            <a class='twitter' href='http://twitter.com/indigitous'>
+              <span class='socialicons ico2'></span>
+              <span class='socialicons_h ico2h'></span>
+            </a>
+          </div>
+        </div>
+        <div class='row copyright'>
+          <div class='col-md-12'>
+            <p>
+              <a href='http://www.indigitous.org/' target='_blank'>
+                <%= image_tag('logo.png', :alt => "Indigitous") %>
+              </a>
+            </p>
+            Accelerating the Great Commission | Copyright ©
+            <%= Time.now.year %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
