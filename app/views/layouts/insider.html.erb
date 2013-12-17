@@ -1,9 +1,9 @@
 <% visitor = @visitors.first %>
 <!DOCTYPE html>
-<html ng-app="operator">
+<html ng-app="insider">
   <head>
-    <title>Godchat | Conversation</title>
-    <%= stylesheet_link_tag "operator/application", :media => "all" %>
+    <title>Godchat | Dashboard</title>
+    <%= stylesheet_link_tag "insider/application", :media => "all" %>
     <%= csrf_meta_tags %>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -11,7 +11,6 @@
     <meta property="og:site_name" content="God Chat"/>
     <meta property="og:url" content="<%= request.url %>">
     <meta property="og:image" content="<%= asset_url('avatar.png') %>">
-    <meta property="og:title" content="<%= visitor['first_name'] %> would like to chat about God with you!"/>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,7 +27,7 @@
       var current_user = <%= current_user.to_json.html_safe %>;
       current_user.fb_id = current_user.uid;
     </script>
-    <%= javascript_include_tag "operator/application" %>
+    <%= javascript_include_tag "insider/application" %>
     <%= airbrake_javascript_notifier %>
   </body>
 </html>

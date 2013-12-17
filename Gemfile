@@ -76,7 +76,7 @@ group :assets do
 end
 
 group :development do
-  gem 'rails-erd'
+  gem 'railroady'
   gem 'foreman'
   gem 'rails-footnotes', '>= 3.7.9'
   gem "better_errors"
