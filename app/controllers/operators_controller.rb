@@ -1,12 +1,14 @@
 class OperatorsController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   layout 'operator'
   def index
     if params[:channel]
       load_conversation
     end
+
+    authenticate_user! unless user_signed_in?
 
     @visitors = []
     if user_signed_in?
