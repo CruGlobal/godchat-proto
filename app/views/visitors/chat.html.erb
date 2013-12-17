@@ -10,7 +10,7 @@
           <span class="avatar">
             <%= image_tag("letter-avatars/#{current_visitor.first_name[0].downcase}.png", id: "") %>
           </span>
-          first_name
+          <%= current_user.first_name %>
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
