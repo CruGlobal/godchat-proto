@@ -1,4 +1,4 @@
-class Insider < User
+class Operator < User
   has_many :conversations
   has_many :outsiders, through: :conversations
 

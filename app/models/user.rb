@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  ROLES = %w[admin insider friend]
+  ROLES = %w[admin operator friend]
 
   devise :registerable, :trackable
 
   has_and_belongs_to_many :languages
 
-  has_many :conversations, foreign_key: :insider_id
+  has_many :conversations, foreign_key: :operator_id
   has_many :outsiders, through: :conversations
 
   devise :omniauthable, :omniauth_providers => [:facebook]

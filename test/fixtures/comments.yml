@@ -2,10 +2,10 @@
 
 one:
   outsider: 
-  insider: 
+  operator:
   body: MyText
 
 two:
   outsider: 
-  insider: 
+  operator:
   body: MyText

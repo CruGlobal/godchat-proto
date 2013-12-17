@@ -8,4 +8,4 @@
 //= require_self
 //= require_tree .
 
-var app = angular.module('insider', ['ui.directives', 'ui.bootstrap', 'ng-rails-csrf', 'monospaced.elastic', 'angularMoment']).config(['$routeProvider', function($routeProvider) {}]);
+var app = angular.module('operator', ['ui.directives', 'ui.bootstrap', 'ng-rails-csrf', 'monospaced.elastic', 'angularMoment']).config(['$routeProvider', function($routeProvider) {}]);

@@ -1,11 +1,11 @@
 class Conversation < ActiveRecord::Base
-  belongs_to :insider
+  belongs_to :operator
   belongs_to :visitor
   has_many :messages
 
   before_validation :set_channel
 
-  validates :insider_id, :channel, :visitor_id, :topic, presence: true
+  validates :operator_id, :channel, :visitor_id, :topic, presence: true
 
   def set_channel
     return channel if channel

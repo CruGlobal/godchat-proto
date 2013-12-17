@@ -1,6 +1,6 @@
 class Visitor < ActiveRecord::Base
   has_many :conversations
-  has_many :insiders, through: :conversations
+  has_many :operators, through: :conversations
   belongs_to :last_campaign, :class_name => "Campaign", :foreign_key => "last_campaign_id"
   
   before_create :get_fb_profile, :create_missionhub_contact

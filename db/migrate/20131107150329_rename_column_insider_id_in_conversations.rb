@@ -1,4 +1,4 @@
-class RenameColumnInsiderIdInConversations < ActiveRecord::Migration
+class RenameColumnOperatorIdInConversations < ActiveRecord::Migration
   def change
   	rename_column :conversations, :outsider_id, :visitor_id
   end

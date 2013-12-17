@@ -4,7 +4,7 @@
   
   $scope.sendMessage = function () {
 
-    $scope.channel.trigger('client-insider-message', { text: $scope.message, user: current_visitor });
+    $scope.channel.trigger('client-operator-message', { text: $scope.message, user: current_visitor });
     
     $scope.messages.push({
       user: current_visitor,
@@ -16,7 +16,7 @@
     $scope.message = '';
   };
 
-  $scope.channel.bind('client-insider-message', function(data) {
+  $scope.channel.bind('client-operator-message', function(data) {
     $scope.messages.push({
       user: data.user,
       text: data.text,

@@ -2,10 +2,10 @@
 
 one:
   topic: MyString
-  insider: 
+  operator:
   outsider: 
 
 two:
   topic: MyString
-  insider: 
+  operator:
   outsider: 

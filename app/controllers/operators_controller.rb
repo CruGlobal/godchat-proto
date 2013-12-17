@@ -1,6 +1,8 @@
-class InsidersController < ApplicationController
+class OperatorsController < ApplicationController
   protect_from_forgery :except => :auth # stop rails CSRF protection for this action
-  layout 'insider'
+  before_filter :authenticate_user!
+
+  layout 'operator'
   def index
     if params[:channel]
       load_conversation
@@ -33,7 +35,7 @@ class InsidersController < ApplicationController
   def load_conversation
     @conversation = Conversation.find_by(channel: params[:channel])
     if @conversation
-      sign_in(@conversation.insider)
+      sign_in(@conversation.operator)
     end
   end
 end

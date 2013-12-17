@@ -89,7 +89,7 @@ var campaign = new function() {
               $('.mh-friend').click(function(evt) {
                 var person_index = $(evt.target).closest('li').attr('data-index');
                 person = people[person_index]
-                params = {'insider' : person,
+                params = {'operator' : person,
                           'visitor' : $.godchat.visitor,
                           'campaign_id' : $.godchat.campaign_id}
                 $.post('/conversations', params, 'json')

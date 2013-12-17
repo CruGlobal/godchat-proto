@@ -12,19 +12,13 @@ Chatapp::Application.routes.draw do
   end
   resources :conversations
 
-  authenticated :user do
-    namespace :engineer do
-      root to: "dashboard#index"
-      resources :campaigns
-      resources :organizations
-    end
-
-    resources :insiders do
+  #authenticated :user do
+    resources :operators do
       collection do
         post 'auth'
       end
     end
-  end
+  #end
   
   root to: "site#index", :constraints => { :domain => ENV['app_url'] }
   root to: "campaigns#index", as: :campaign_root
@@ -36,5 +30,5 @@ Chatapp::Application.routes.draw do
 
   get 'find_friends' => 'friends#find'
 
-  get '/c/:channel', action: 'index', controller: 'insiders', as: :channel_conversation
+  get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
 end

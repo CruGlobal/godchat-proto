@@ -41,25 +41,25 @@ ActiveRecord::Schema.define(version: 20131107202404) do
 
   create_table "comments", force: true do |t|
     t.integer  "outsider_id"
-    t.integer  "insider_id"
+    t.integer  "operator_id"
     t.text     "body"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "comments", ["insider_id"], name: "index_comments_on_insider_id", using: :btree
+  add_index "comments", ["operator_id"], name: "index_comments_on_operator_id", using: :btree
   add_index "comments", ["outsider_id"], name: "index_comments_on_outsider_id", using: :btree
 
   create_table "conversations", force: true do |t|
     t.string   "topic"
-    t.integer  "insider_id"
+    t.integer  "operator_id"
     t.integer  "visitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "channel"
   end
 
-  add_index "conversations", ["insider_id"], name: "index_conversations_on_insider_id", using: :btree
+  add_index "conversations", ["operator_id"], name: "index_conversations_on_operator_id", using: :btree
   add_index "conversations", ["visitor_id"], name: "index_conversations_on_visitor_id", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
