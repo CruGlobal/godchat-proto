@@ -36,6 +36,11 @@ gem 'newrelic_rpm'
 gem 'useragent'
 
 # Testing
+gem 'rspec-rails'
+gem 'guard-rspec'
+gem 'guard-rails'
+gem 'guard-spork'
+gem 'spork-rails'
 gem 'be_valid_asset'
 
 # Assets CSS
@@ -77,8 +82,8 @@ group :development do
   gem 'railroady'
   gem 'foreman'
   gem 'rails-footnotes', '>= 3.7.9'
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
