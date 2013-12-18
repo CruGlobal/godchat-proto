@@ -11,6 +11,7 @@ gem 'puma'
 gem 'redis'
 gem 'resque'
 gem 'pg'
+gem 'dalli'
 
 # Authentication
 gem 'devise'
