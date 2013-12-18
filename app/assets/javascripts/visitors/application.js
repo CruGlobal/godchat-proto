@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
-//= require angular-bootstrap
 //= require angular-ui
 //= require angular-ui-bootstrap
 //= require angular-ui-bootstrap-tpls
