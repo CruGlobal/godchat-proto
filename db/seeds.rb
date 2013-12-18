@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Campaign.create(name: 'Falling Plates', cname: 'www.fallingplates.com', missionhub_secret: 'change_me')

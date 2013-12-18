@@ -17,3 +17,5 @@
 database.yml
 vendor/ruby
 .idea
+zeus.json
+custom_plan.rb

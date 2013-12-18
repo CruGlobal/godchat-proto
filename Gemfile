@@ -11,21 +11,17 @@ gem 'puma'
 gem 'redis'
 gem 'resque'
 gem 'pg'
-gem 'delayed_job_active_record'
-gem 'inherited_resources'
-gem 'activerecord-session_store'
 
 # Authentication
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 gem 'cancan'
 
 # Public API
-gem 'koala'
-gem 'twilio-ruby'
-gem 'aws-sdk'
+#gem 'koala'
+#gem 'twilio-ruby'
+#gem 'aws-sdk'
 gem 'MissionHub'
 gem 'pusher'
 gem 'rest-client'
@@ -36,17 +32,20 @@ gem 'newrelic_rpm'
 gem 'useragent'
 
 # Testing
-gem 'rspec-rails'
-gem 'guard-rspec'
-gem 'guard-rails'
-gem 'guard-spork'
-gem 'spork-rails'
-gem 'be_valid_asset'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'guard-rails'
+  gem 'guard-zeus'
+  gem 'zeus'
+  gem 'be_valid_asset'
+  gem 'factory_girl_rails'
+end
 
 # Assets CSS
 gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'compass'
 
 # Assets Javascript
@@ -60,7 +59,7 @@ gem 'angular-ui-bootstrap-rails'
 # Assets HTML
 gem 'haml'
 gem 'formtastic'
-gem 'formtastic-bootstrap', github: "nickl-/formtastic-bootstrap3"
+gem 'formtastic-bootstrap', github: 'nickl-/formtastic-bootstrap3'
 gem 'tabletastic'
 gem 'kaminari'
 gem 'paperclip', '~> 3.0'
@@ -75,7 +74,6 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # API
 gem 'versionist'
 
-gem 'hamlbars', '~> 2.0'
 gem 'uglifier', '>= 1.0.3'
 
 group :development do
