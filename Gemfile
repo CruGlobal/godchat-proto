@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 # Core
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 gem 'rake'
 gem 'sprockets'
 gem 'puma'
@@ -70,10 +70,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # API
 gem 'versionist'
 
-group :assets do
-  gem 'hamlbars', '~> 2.0'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'hamlbars', '~> 2.0'
+gem 'uglifier', '>= 1.0.3'
 
 group :development do
   gem 'railroady'
