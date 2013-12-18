@@ -1,0 +1,88 @@
+    <div class="invite">
+  Hey! After the video, stick around because I want to chat...
+</div>
+<div class="box">
+  <div id="player"></div>
+  <iframe frameborder="0" id="webpage" src="http://www.startingwithgod.com/"></iframe>
+</div>
+<div id="chat">
+  <h1 class="special">#FallingPlates</h1>
+  <div id="willyoufollow">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <small class="text-muted">Jesus Asks</small>
+        <br>
+        Will you follow me?
+      </div>
+      <div class="panel-body">
+        <div class="btn btn-danger btn-block disabled">No</div>
+        <div class="btn btn-danger btn-block disabled">I follow another religion</div>
+        <div class="btn btn-warning btn-block disabled">I am not sure</div>
+        <div class="btn btn-info btn-block" id="start-btn" onClick="tour.showNextStep('#willyoufollow', '#myfriends', 2, 3)">I want to start</div>
+        <div class="btn btn-success btn-block disabled">I am trying</div>
+        <div class="btn btn-success btn-block disabled">I am following you</div>
+      </div>
+    </div>
+  </div>
+  <div id="myfriends">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p class="lead name_box">
+          Hey &nbsp;<span class="name"></span>.
+        </p>
+        <p>That"s great you want to start to follow Jesus. Sometimes, it"s easier to start something new when a friend is involved.</p>
+        <p>Would you like to invite a friend to chat or would you rather talk with someone we know?</p>
+      </div>
+      <div class="panel-body">
+        <div class="btn btn-primary btn-block" id="invite-btn" onClick="tour.showNextStep('#myfriends', '#linkafriend', 3, 4)">Invite a Christian friend</div>
+        <div class="btn btn-primary btn-block" onClick="tour.showNextStep('#myfriends', '#opconnect', 3, 5)">Find someone for me</div>
+      </div>
+    </div>
+  </div>
+  <div id="linkafriend">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p class="lead">You can invite your friend by sharing the link below with them via Facebook.</p>
+        <input class="form-control" id="link" onClick="this.select();" readonly="readonly" value="http://godchat.tv/u/06dEQ">
+      </div>
+      <div class="panel-body">
+        <p class="new-article">While you wait why not look through the article “Starting with God”, I have just loaded it into the media box to the left.</p>
+        <p class="old-article">While we wait for your friend, you can keep reading the "Starting with God" article.</p>
+        <a class="btn btn-default btn-sm btn-block" id="findsomeone-btn" onClick="tour.showNextStep("#linkafriend", "#opconnect", 4, 5)">Find someone for me instead</a>
+      </div>
+    </div>
+  </div>
+  <div id="opconnect">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p class="lead">
+          I"m busy searching for someone to chat with you.
+        </p>
+      </div>
+      <div class="panel-body">
+        <p class="new-article">While you wait why not look through the article “Starting with God”, I have just loaded it into the media box to the left.</p>
+        <p class="old-article">While I look for someone to chat with, you can keep reading the "Starting with God" article.</p>
+        <div class="text-right">
+          <i class="icon-spinner icon-spin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="chatbox">
+    <h1 class="special">#FallingPlates Chat</h1>
+    <ul class="conversation">
+      <li>
+        <div class="message text-right">Hey, how are you?</div>
+        <div class="timestamp pull-right">Just now</div>
+        <div class="person">Robert</div>
+      </li>
+      <li>
+        <div class="message">Great. How do I get started?</div>
+        <div class="timestamp pull-right">Just now</div>
+        <div class="person">You</div>
+      </li>
+    </ul>
+    <input class="form-control chat-input" placeholder="Message..." type="text">
+  </div>
+</div>
+

@@ -83,6 +83,7 @@ group :development do
   gem 'rails-footnotes', '>= 3.7.9'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 
 group :production do

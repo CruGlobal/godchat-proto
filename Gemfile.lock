@@ -229,6 +229,8 @@ GEM
       httpclient (~> 2.3.0)
       multi_json (~> 1.0)
       signature (~> 0.1.6)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
@@ -382,6 +384,7 @@ DEPENDENCIES
   pg
   puma
   pusher
+  quiet_assets
   railroady
   rails (= 4.0.2)
   rails-footnotes (>= 3.7.9)
