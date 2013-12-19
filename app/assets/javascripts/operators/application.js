@@ -9,4 +9,4 @@
 //= require_tree ../../../../vendor/assets/javascripts/angular
 //= require_tree .
 
-var app = angular.module('operator', ['ui.directives', 'ui.bootstrap', 'ng-rails-csrf', 'monospaced.elastic', 'angularMoment']).config(['$routeProvider', function($routeProvider) {}]);
+var app = angular.module('operator', ['ui.directives', 'ui.bootstrap', 'ng-rails-csrf', 'monospaced.elastic', 'angularMoment']);
