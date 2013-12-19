@@ -20,9 +20,6 @@ gem 'omniauth-facebook'
 gem 'cancan'
 
 # Public API
-#gem 'koala'
-#gem 'twilio-ruby'
-#gem 'aws-sdk'
 gem 'MissionHub'
 gem 'pusher'
 gem 'rest-client'
@@ -31,6 +28,35 @@ gem 'rest-client'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'useragent'
+
+# Assets CSS
+gem 'sass-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :git => 'https://github.com/anjlab/bootstrap-rails', :branch => '3.0.0'
+gem 'font-awesome-rails'
+gem 'compass'
+
+# Assets Javascript
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'angularjs-rails'
+gem 'angular-ui-rails'
+gem 'angular-ui-bootstrap-rails'
+
+# Assets HTML
+gem 'haml'
+gem 'formtastic'
+gem 'formtastic-bootstrap', :git => 'https://github.com/nickl-/formtastic-bootstrap3'
+gem 'tabletastic'
+gem 'kaminari'
+gem 'paperclip', '~> 3.0'
+
+# Rails Frameworks
+gem 'wicked'
+
+# Active Admin
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin'
+
+gem 'uglifier', '>= 1.0.3'
 
 # Testing
 group :test, :development do
@@ -43,40 +69,6 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
-# Assets CSS
-gem 'sass-rails'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
-gem 'font-awesome-rails'
-gem 'compass'
-
-# Assets Javascript
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jshintrb'
-gem 'angularjs-rails'
-gem 'angular-ui-rails'
-gem 'angular-ui-bootstrap-rails'
-
-# Assets HTML
-gem 'haml'
-gem 'formtastic'
-gem 'formtastic-bootstrap', github: 'nickl-/formtastic-bootstrap3'
-gem 'tabletastic'
-gem 'kaminari'
-gem 'paperclip', '~> 3.0'
-
-# Rails Frameworks
-gem 'wicked'
-gem 'seed_dump'
-
-# Active Admin
-gem 'activeadmin', github: 'gregbell/active_admin'
-
-# API
-gem 'versionist'
-
-gem 'uglifier', '>= 1.0.3'
-
 group :development do
   gem 'railroady'
   gem 'foreman'
@@ -84,6 +76,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'seed_dump'
 end
 
 group :production do

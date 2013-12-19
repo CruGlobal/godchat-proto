@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
+  remote: https://github.com/anjlab/bootstrap-rails
   revision: addb7143365f97f938e3bdbb2ccfc52591230eda
   branch: 3.0.0
   specs:
@@ -8,8 +8,8 @@ GIT
       sass (>= 3.2)
 
 GIT
-  remote: git://github.com/gregbell/active_admin.git
-  revision: 51792c7924372fc0c8789bc849f82e09041e1218
+  remote: https://github.com/gregbell/active_admin
+  revision: 7d86ea9a6ec55fcb0203f87972f6fb6a10cc9800
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -26,7 +26,7 @@ GIT
       sass-rails
 
 GIT
-  remote: git://github.com/nickl-/formtastic-bootstrap3.git
+  remote: https://github.com/nickl-/formtastic-bootstrap3
   revision: 95fed68e39fe2fc4b55256b077dd8fb5b36471f3
   specs:
     formtastic-bootstrap (2.1.3)
@@ -170,10 +170,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
-    jshintrb (0.2.4)
-      execjs
-      multi_json (>= 1.3)
-      rake
     json (1.8.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
@@ -375,7 +371,6 @@ DEPENDENCIES
   hirefireapp
   jquery-rails
   jquery-ui-rails
-  jshintrb
   kaminari
   newrelic_rpm
   omniauth
