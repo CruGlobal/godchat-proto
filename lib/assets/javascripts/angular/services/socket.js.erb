@@ -1,3 +1,0 @@
-app.factory('socket', function ($rootScope) {
-  return new Pusher('<%= ENV['pusher_key']; %>', {authEndpoint: '/operators/auth', encrypted: true});
-});
