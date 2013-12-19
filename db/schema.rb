@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217180803) do
+ActiveRecord::Schema.define(version: 20131217212830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20131217180803) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "missionhub_secret"
-    t.string   "domain"
+    t.string   "code"
   end
 
-  add_index "campaigns", ["domain"], name: "index_campaigns_on_domain", using: :btree
+  add_index "campaigns", ["code"], name: "index_campaigns_on_code", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "outsider_id"
