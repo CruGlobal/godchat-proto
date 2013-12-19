@@ -8,7 +8,7 @@ Chatapp::Application.routes.draw do
   end
 
   authenticated :user do
-    get 'me', to: "operator#index", as: :operator_dashboard
+    get 'me', to: "operators#index", as: :operator_dashboard
   end
 
   constraints Constraints::DomainConstraint.new(ENV['operator_app_url']) do
@@ -17,7 +17,7 @@ Chatapp::Application.routes.draw do
     get '/features', to: "site#features", as: :features
     post '/pusher/presence' => 'pusher#presence'
     get 'find_friends' => 'friends#find'
-    get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
+    ##get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
   end
 
   get '/o/:code', to: "visitors#index"

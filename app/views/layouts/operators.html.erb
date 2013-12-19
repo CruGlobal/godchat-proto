@@ -2,7 +2,7 @@
 <html ng-app="operator">
   <head>
     <title>Godchat | Dashboard</title>
-    <%= stylesheet_link_tag "operator/application", :media => "all" %>
+    <%= stylesheet_link_tag "operators/application", :media => "all" %>
     <%= csrf_meta_tags %>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -25,7 +25,7 @@
       var current_user = <%= current_user.to_json.html_safe %>;
       current_user.fb_id = current_user.uid;
     </script>
-    <%= javascript_include_tag "operator/application" %>
+    <%= javascript_include_tag "operators/application" %>
     <%= airbrake_javascript_notifier %>
   </body>
 </html>

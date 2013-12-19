@@ -1,4 +1,4 @@
-class Api::VisitorController < InheritedResources::Base
+class Api::VisitorsController < InheritedResources::Base
   protect_from_forgery
 
   def auth
