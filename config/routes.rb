@@ -17,7 +17,7 @@ Chatapp::Application.routes.draw do
     get '/features', to: "site#features", as: :features
     post '/pusher/presence' => 'pusher#presence'
     get 'find_friends' => 'friends#find'
-    ##get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
+    #get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
   end
 
   get '/o/:code', to: "visitors#index"
