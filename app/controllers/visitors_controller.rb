@@ -1,12 +1,20 @@
-class VisitorsController < ApplicationController
-  before_filter :get_visitor, only: [:chat, :auth]
+class VisitorsController < InheritedResources::Base
+  #before_filter :get_visitor, only: [:chat, :auth]
+  protect_from_forgery
+
+  def index
+    @campaign = Campaign.find_by(cname: request.host)
+    redirect_to "http://dev.#{ENV['app_url']}:#{request.port}/o/#{@campaign.code}", status: :found
+  end
+  
+  def show
+    @campaign = Campaign.find_by(code: params[:code])
+    session[:campaign_id] = @campaign.id
+  end
+
   def create
     @visitor = Visitor.where(fb_uid: params[:fb_uid]).first_or_create!(last_campaign_id: session[:campaign_id])
     session[:visitor_id] = @visitor.id
-  end
-
-  def chat
-    render layout: "visitors"
   end
 
   def auth
@@ -24,9 +32,4 @@ class VisitorsController < ApplicationController
     end
   end
 
-  private
-
-  def get_visitor
-    @visitor = Visitor.find(session[:visitor_id])
-  end
 end

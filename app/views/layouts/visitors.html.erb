@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="visitor">
+<html ng-app="campaign">
   <head>
-    <title>Godchat | Conversation</title>
+    <title><%= @campaign.name %></title>
     <%= stylesheet_link_tag "visitors/application", :media => "all" %>
     <%= csrf_meta_tags %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="<%= @campaign.name %>"/>
+    <meta property="og:url" content="<%= request.url %>">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
   </head>
-  <body class="pull_top">
-    <div class="content">
-      <%= yield %>
-    </div>
+  <body>
+    <%= yield %>
     <script src="http://js.pusher.com/2.1/pusher.min.js"></script>
     <script>
-      <%  conversation = current_visitor.conversations.first %>
-      var users = [<%= conversation.visitor.attributes.merge(channel: conversation.channel).to_json.html_safe %>];
-      var current_visitor = <%= current_visitor.to_json.html_safe %>;
-      current_visitor.uid = current_visitor.fb_uid;
+      // var current_user = {};
+      // current_user.fb_id = current_user.uid;
+      //       <%  conversation = current_visitor.conversations.first %>
+      // var users = [< conversation.visitor.attributes.merge(channel: conversation.channel).to_json.html_safe >];
+      // var current_visitor = <%= current_visitor.to_json.html_safe %>;
+      // current_visitor.uid = current_visitor.fb_uid;
+
+      // $(function() {
+      //   $.godchat.visitor = <%= current_visitor.to_json.html_safe %>;
+      //   $.godchat.campaign_id = <%= session[:campaign_id] %>;
+      // });
     </script>
     <%= javascript_include_tag "visitors/application" %>
     <%= airbrake_javascript_notifier %>
