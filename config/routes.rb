@@ -20,8 +20,8 @@ Chatapp::Application.routes.draw do
     get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
   end
 
-  get '/o/:code', to: "visitor#index"
-  root to: "visitor#index", as: :campaign_root
+  get '/o/:code', to: "visitors#index"
+  root to: "visitors#index", as: :campaign_root
 
   namespace :api, defaults: {format: :json} do
     namespace :visitors do
