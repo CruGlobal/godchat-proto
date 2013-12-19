@@ -1,6 +1,6 @@
 class Conversation < ActiveRecord::Base
-  belongs_to :operator
-  belongs_to :visitor
+  belongs_to :operators
+  belongs_to :visitors
   has_many :messages
 
   before_validation :set_channel

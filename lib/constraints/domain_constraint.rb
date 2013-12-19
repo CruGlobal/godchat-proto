@@ -1,12 +1,12 @@
 module Constraints
 	class DomainConstraint
 
-	  def initialize(domain)
-	    @domain = domain
+	  def initialize(domains)
+      @domains = Array.wrap(domains).compact
 	  end
 
 	  def matches?(request)
-	    @domain.include? request.domain
+      @domains.include? request.host
 	  end
 	end
 end

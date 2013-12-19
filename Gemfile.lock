@@ -330,14 +330,10 @@ GEM
     useragent (0.10.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    versionist (1.2.1)
-      rails (>= 3)
-      yard (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
     wicked (1.0.2)
       rails (>= 3.0.7)
-    yard (0.8.7.3)
     zeus (0.13.3)
       method_source (>= 0.6.7)
 
@@ -396,6 +392,5 @@ DEPENDENCIES
   tabletastic
   uglifier (>= 1.0.3)
   useragent
-  versionist
   wicked
   zeus
