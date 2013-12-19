@@ -1,0 +1,81 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-inner">
+    <a class="brand" href="#">
+      <i class="icon-comments-alt">&nbsp;</i>
+      Godchat
+    </a>
+    <ul class="nav pull-right">
+      <li class="dropdown active">
+        <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
+          <span class="avatar">
+            <%= image_tag("letter-avatars/#{current_visitor.first_name[0].downcase}.png", id: "") %>
+          </span>
+          <%= current_user.first_name %>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a>Account Settings</a>
+          </li>
+          <li>
+            <a>Support</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="content">
+  <div ng-controller="MasterController">
+    <div id="visitors">
+      <ul ng-repeat="user in users">
+        <li class="user" ng-class="{active:selectedConversation==user}">
+          <a ng-click="selectConversation(user)">
+            <span class="avatar">
+              <img ng-src="http://graph.facebook.com/{{user.fb_uid}}/picture">
+            </span>
+            {{capitaliseFirstLetter(user.first_name)}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="messages">
+      <div ng-controller="VisitorController" ng-repeat="user in users" ng-show="selectedConversation == user">
+        <ul ng-controller="MessageController" ng-repeat="message in messages">
+          <li class="message" ng-class="{me: message.me}">
+            <div class="msg">
+              <div class="text">
+                {{message.text}}
+              </div>
+              <div class="timestamp">
+                <span class="avatar">
+                  <img ng-src="http://graph.facebook.com/{{message.user.uid}}/picture">
+                </span>
+                {{capitaliseFirstLetter(message.user.first_name)}} •
+                <span am-time-ago="time"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="send-msg">
+          <textarea class="msd-elastic" ng-enter="sendMessage()" ng-model="message" placeholder="Send a message..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="call_request.html" type="text/ng-template">
+  <div class="modal-dialog"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Incoming Call</h3>
+    </div>
+    <div class="modal-body">
+      {{data.name}}
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</script>

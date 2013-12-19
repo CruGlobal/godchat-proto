@@ -7,20 +7,11 @@ Chatapp::Application.routes.draw do
      delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  resources :visitors do
-    collection do
-      post 'auth'
-      get 'chat'
-    end
-  end
+  get '/o/:code', to: "visitor#index"
 
-  resources :operators do
-    collection do
-      post 'auth'
-    end
+  authenticated :user do
+    get 'me', to: "operator#index", as: :operator_dashboard
   end
-  
-  get '/o/:code', to: "visitors#show"
 
   constraints Constraints::DomainConstraint.new(ENV['app_url']) do
     root to: "site#index"
@@ -31,5 +22,21 @@ Chatapp::Application.routes.draw do
     get '/c/:channel', action: 'index', controller: 'operators', as: :channel_conversation
   end
 
-  root to: "visitors#index", as: :campaign_root
+  root to: "visitor#redirect", as: :campaign_root
+
+  namespace :api, defaults: {format: :json} do
+    namespace :visitor do
+      post 'auth'
+      get 'chat'
+    end
+    namespace :operator do
+      post 'auth'
+      resources :memberships do
+        resources :campaigns, only: [:index, :create, :update, :destroy]
+      end
+      resources :conversations, only: [:index, :destroy] do
+        resources :messages
+      end
+    end
+  end
 end

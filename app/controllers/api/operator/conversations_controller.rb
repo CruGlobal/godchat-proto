@@ -1,4 +1,4 @@
-class ConversationsController < ApplicationController
+class Api::Operator::ConversationsController < ApplicationController
   def create
     campaign = Campaign.find(params[:campaign_id])
     visitor = Visitor.find(params[:visitor][:id])

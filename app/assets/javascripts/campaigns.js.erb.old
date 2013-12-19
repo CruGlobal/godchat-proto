@@ -1,0 +1,119 @@
+$(document).one('facebook_init', function() {
+  if ($('.campaign')[0]) {
+    // If we don't already have a visitor, create one
+    if ($.godchat.visitor['id'] == null) {
+      $.post('/visitors', {fb_uid: $.godchat.facebook_user_id}, 'script')
+    }
+    $(document).trigger('visitor_init')
+  }
+});
+
+var campaign = new function() {
+  var self = this;
+
+  window.onYouTubeIframeAPIReady = function() {
+      self.player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'KGlx11BxF24',
+        playerVars: {
+          autoplay: 1,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0,
+          iv_load_policy: 3
+        },
+        events: {
+          'onReady': self.onPlayerReady,
+          'onStateChange': self.onPlayerStateChange
+        }
+      });
+    };
+    self.onPlayerReady = function(evt) {
+      evt.target.playVideo();
+      self.bt.restart(true);
+    };
+    self.onPlayerStateChange = function(evt) {
+        switch(evt.data) {
+          case YT.PlayerState.PLAYING:
+            document.title = "▶ " + self.title;
+            if (parseInt(self.bt.getState("current_step")) > 1)
+              self.bt.hideStep( self.bt.getState("current_step") );
+            self.hideChat();
+            break;
+          case YT.PlayerState.ENDED:
+          case YT.PlayerState.PAUSED:
+            document.title = self.title;
+            if (parseInt(self.bt.getState("current_step")) > 1)
+              self.bt.showStep( self.bt.getState("current_step") );
+            self.showChat();
+            break;
+        }
+    };
+    self.showChat = function() {
+      $('.box, #chat, .invite').addClass('paused');
+      if (parseInt(self.bt.getState("current_step")) == 1)
+        campaign.bt.goto(2);
+    };
+    self.hideChat = function() {
+      $('.box, #chat, .invite').removeClass('paused');
+    };
+
+  self.init = function() {
+    $('.name_box, .facebook, .new-article, .old-article').hide();
+
+    self.bt = new Tour({
+      template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div><nav class='popover-navigation'><button class='btn btn-default btn-sm' data-role='prev'>« Prev</button><button class='btn btn-primary btn-sm pull-right' data-role='next'>Next »</button></nav></div>",
+      debug: true,
+    });
+
+    // campaign.player.seekTo(0);
+    // campaign.player.playVideo();
+
+    $(document).one('visitor_init',function(){
+      if($.godchat.facebook_user_id) {
+        $.ajax("/find_friends.json?id="+$.godchat.facebook_user_id).
+          done(function(data) {
+            var people = data.people;
+            if(people.length > 0) {
+              var list_html = "<p>These friends may be able to help, click one to invite them to a conversation</p><ul class='people_pic_list'>";
+              for(var i in people) {
+                p = people[i];
+                var name = p.first_name+" "+p.last_name
+                if(!p.picture)
+                  p.picture = "<%= asset_path('avatar.png') %>"
+                list_html += '<li class="mh-friend" data-index="'+i+'"><img src="'+p.picture+'" alt="'+name+'" title="'+name+'">'+p.first_name+'</li>';
+              }
+              list_html += "</ul>";
+              $('#friends').html(list_html);
+              $('.mh-friend').click(function(evt) {
+                var person_index = $(evt.target).closest('li').attr('data-index');
+                person = people[person_index]
+                params = {'operator' : person,
+                          'visitor' : $.godchat.visitor,
+                          'campaign_id' : $.godchat.campaign_id}
+                $.post('/conversations', params, 'json')
+                  .success(function(resp) {
+                    conversation_link = resp['link']
+                    //Spencer: All yours buddy!
+                    FB.ui({
+                      method: 'send',
+                      link: conversation_link,
+                      to: person.fb_uid.toString()
+                    });
+                });
+              });
+              // $('.other_connections').hide();
+            }
+          });
+      }
+    });
+
+    self.tag = document.createElement('script');
+    self.title = document.title;
+    self.tag.src = "https://www.youtube.com/iframe_api";
+    self.firstScriptTag = document.getElementsByTagName('script')[0];
+    self.firstScriptTag.parentNode.insertBefore(self.tag, self.firstScriptTag);
+    self.done = false;
+  };
+};

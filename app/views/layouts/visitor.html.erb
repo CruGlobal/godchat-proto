@@ -2,7 +2,7 @@
 <html ng-app="campaign">
   <head>
     <title><%= @campaign.name %></title>
-    <%= stylesheet_link_tag "visitors/application", :media => "all" %>
+    <%= stylesheet_link_tag "visitor/application", :media => "all" %>
     <%= csrf_meta_tags %>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -29,7 +29,7 @@
       //   $.godchat.campaign_id = <%= session[:campaign_id] %>;
       // });
     </script>
-    <%= javascript_include_tag "visitors/application" %>
+    <%= javascript_include_tag "visitor/application" %>
     <%= airbrake_javascript_notifier %>
   </body>
 </html>
