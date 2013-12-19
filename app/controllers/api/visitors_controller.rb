@@ -16,8 +16,4 @@ class Api::VisitorsController < InheritedResources::Base
     end
   end
 
-  def chat
-
-  end
-
 end
