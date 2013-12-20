@@ -1,0 +1,13 @@
+angular.module('operator', ["ngResource"]).factory 'Campaign', ($resource) ->
+  class Campaign
+    constructor: (CampaignId) ->
+      @service = $resource('/api/campaign/:campaign_id',
+        {campaign_id: '@id'})
+
+    create: (attrs) ->
+      new @service(campaign: attrs).$save (campaign) ->
+        attrs.id = campaign.id
+      attrs
+
+    all: ->
+      @service.query()

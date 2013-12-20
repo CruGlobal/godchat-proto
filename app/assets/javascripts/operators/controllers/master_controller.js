@@ -3,7 +3,7 @@ app.controller('MasterController', function($scope, $modal, socket) {
 
   $scope.me = current_user;
 
-  $scope.selectedConversation = visitors[0];
+  //$scope.selectedConversation = visitors[0];
 
   // Socket listeners
   // ================
